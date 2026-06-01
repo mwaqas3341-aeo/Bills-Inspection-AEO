@@ -27,6 +27,8 @@
       --c-purple:    #a78bfa;
       --c-purple-d:  #7c3aed;
       --c-purple-g:  rgba(167,139,250,0.12);
+      --c-teal:      #2dd4bf;
+      --c-teal-g:    rgba(45,212,191,0.1);
       --c-text:      #e2e8f0;
       --c-text-dim:  #94a3b8;
       --c-text-faint:#475569;
@@ -61,13 +63,8 @@
       background: linear-gradient(135deg, #0d1117 0%, #111a2e 50%, #0d1117 100%);
       border-bottom: 1px solid var(--c-border);
       padding: 14px 16px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
     }
     .header-brand { display: flex; align-items: center; gap: 10px; }
     .header-icon {
@@ -114,52 +111,25 @@
       font-family: 'Exo 2', sans-serif;
       font-size: 12px; font-weight: 600; cursor: pointer;
       border-bottom: 2px solid transparent; transition: all 0.2s;
-      white-space: nowrap;
-      letter-spacing: 0.3px;
+      white-space: nowrap; letter-spacing: 0.3px;
     }
     .tab-btn:hover { color: var(--c-text); }
     .tab-btn.active { color: var(--c-orange); border-bottom-color: var(--c-orange); }
 
-    /* External link tab buttons */
     .tab-ext {
       display: flex; align-items: center; gap: 6px;
-      padding: 7px 13px;
-      border-radius: 7px;
+      padding: 7px 13px; border-radius: 7px;
       font-family: 'Exo 2', sans-serif;
       font-size: 11px; font-weight: 700;
-      text-decoration: none;
-      white-space: nowrap;
-      border: 1px solid transparent;
-      transition: all 0.2s;
-      letter-spacing: 0.3px;
-      margin: 5px 3px;
+      text-decoration: none; white-space: nowrap;
+      border: 1px solid transparent; transition: all 0.2s;
+      letter-spacing: 0.3px; margin: 5px 3px;
     }
-    .tab-ext-budget {
-      background: var(--c-blue-g);
-      border-color: rgba(56,189,248,0.35);
-      color: var(--c-blue);
-    }
-    .tab-ext-budget:hover {
-      background: rgba(56,189,248,0.2);
-      border-color: var(--c-blue);
-      box-shadow: 0 0 12px rgba(56,189,248,0.25);
-      transform: translateY(-1px);
-    }
-    .tab-ext-perf {
-      background: var(--c-purple-g);
-      border-color: rgba(167,139,250,0.35);
-      color: var(--c-purple);
-    }
-    .tab-ext-perf:hover {
-      background: rgba(167,139,250,0.2);
-      border-color: var(--c-purple);
-      box-shadow: 0 0 12px rgba(167,139,250,0.25);
-      transform: translateY(-1px);
-    }
-    .tab-ext .ext-arrow {
-      font-size: 10px;
-      opacity: 0.7;
-    }
+    .tab-ext-budget { background: var(--c-blue-g); border-color: rgba(56,189,248,0.35); color: var(--c-blue); }
+    .tab-ext-budget:hover { background: rgba(56,189,248,0.2); border-color: var(--c-blue); box-shadow: 0 0 12px rgba(56,189,248,0.25); transform: translateY(-1px); }
+    .tab-ext-perf { background: var(--c-purple-g); border-color: rgba(167,139,250,0.35); color: var(--c-purple); }
+    .tab-ext-perf:hover { background: rgba(167,139,250,0.2); border-color: var(--c-purple); box-shadow: 0 0 12px rgba(167,139,250,0.25); transform: translateY(-1px); }
+    .tab-ext .ext-arrow { font-size: 10px; opacity: 0.7; }
     .tabs-spacer { flex: 1; }
 
     /* ---- MAIN ---- */
@@ -167,8 +137,7 @@
 
     /* ---- TOAST ---- */
     .toast {
-      display: none;
-      padding: 12px 16px; border-radius: var(--radius);
+      display: none; padding: 12px 16px; border-radius: var(--radius);
       font-weight: 700; font-size: 13px; margin-bottom: 14px;
       text-align: center; border-left: 4px solid; animation: fadeSlide 0.3s ease;
     }
@@ -208,18 +177,92 @@
     }
     .inp:focus { border-color: var(--c-orange); box-shadow: 0 0 0 3px rgba(249,115,22,0.15); }
     .inp::placeholder { color: var(--c-text-faint); }
-    .inp[readonly] { background: rgba(255,255,255,0.03); color: var(--c-text-faint); cursor: not-allowed; }
+    .inp[readonly], .inp:disabled {
+      background: rgba(255,255,255,0.03); color: var(--c-text-faint); cursor: not-allowed;
+    }
     select.inp {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23f97316' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
     }
     select.inp option { background: #161b28; }
+    select.inp:disabled { opacity: 0.5; }
+
+    /* ---- LOCKED FIELD (Dy Office auto-generated) ---- */
+    .locked-field-wrap { position: relative; }
+    .locked-field-wrap .inp {
+      background: linear-gradient(135deg, rgba(249,115,22,0.06), rgba(249,115,22,0.02));
+      border-color: rgba(249,115,22,0.3);
+      color: var(--c-orange);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700; font-size: 13px;
+      padding-right: 32px;
+    }
+    .locked-icon {
+      position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+      font-size: 12px; opacity: 0.6; pointer-events: none;
+    }
+
+    /* ---- WING SELECTOR ---- */
+    .wing-selector { display: flex; gap: 8px; margin-bottom: 0; }
+    .wing-btn {
+      flex: 1; padding: 10px 8px; border-radius: 8px; border: 2px solid var(--c-border);
+      background: var(--c-bg); color: var(--c-text-dim);
+      font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; text-align: center; letter-spacing: 0.5px;
+    }
+    .wing-btn:hover { border-color: var(--c-orange); color: var(--c-text); }
+    .wing-btn.active-m {
+      border-color: var(--c-blue); background: var(--c-blue-g);
+      color: var(--c-blue);
+      box-shadow: 0 0 12px rgba(56,189,248,0.25);
+    }
+    .wing-btn.active-w {
+      border-color: var(--c-purple); background: var(--c-purple-g);
+      color: var(--c-purple);
+      box-shadow: 0 0 12px rgba(167,139,250,0.25);
+    }
+    .wing-pill {
+      font-size: 9px; padding: 2px 6px; border-radius: 10px;
+      font-family: 'Exo 2', sans-serif; font-weight: 700;
+      display: inline-block; margin-top: 3px;
+    }
+    .wing-pill-m { background: var(--c-blue-g); color: var(--c-blue); border: 1px solid rgba(56,189,248,0.3); }
+    .wing-pill-w { background: var(--c-purple-g); color: var(--c-purple); border: 1px solid rgba(167,139,250,0.3); }
+
+    /* ---- CASCADE SECTION (Wing → Tehsil → Markaz) ---- */
+    .cascade-section {
+      background: var(--c-surface2); border: 1px solid var(--c-border);
+      border-radius: 10px; padding: 14px; margin-bottom: 12px;
+    }
+    .cascade-section-title {
+      font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--c-text-faint); text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+    }
+    .cascade-section-title::before { content: ''; display: inline-block; width: 3px; height: 12px; background: var(--c-orange); border-radius: 2px; }
+    .cascade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (min-width: 600px) { .cascade-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    /* ---- MARKAZ COUNT BADGE ---- */
+    .markaz-count {
+      font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 10px;
+      background: var(--c-orange-g); color: var(--c-orange);
+      border: 1px solid rgba(249,115,22,0.3); margin-left: 6px;
+    }
 
     /* ---- FORM GRID ---- */
     .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     @media (min-width: 600px)  { .form-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (min-width: 900px)  { .form-grid { grid-template-columns: repeat(4, 1fr); } }
     .form-actions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+    .form-section-label {
+      grid-column: 1 / -1;
+      font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--c-text-faint);
+      padding: 8px 0 4px; border-top: 1px solid var(--c-border); margin-top: 4px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .form-section-label span { color: var(--c-orange); }
 
     /* ---- BUTTONS ---- */
     .btn {
@@ -264,6 +307,8 @@
     .badge-orange { background: var(--c-orange-g);color: var(--c-orange);border: 1px solid rgba(249,115,22,0.3); }
     .badge-blue   { background: var(--c-blue-g);  color: var(--c-blue);  border: 1px solid rgba(56,189,248,0.3); }
     .badge-yellow { background: var(--c-yellow-g);color: var(--c-yellow);border: 1px solid rgba(251,191,36,0.3); }
+    .badge-teal   { background: var(--c-teal-g);  color: var(--c-teal);  border: 1px solid rgba(45,212,191,0.3); }
+    .badge-purple { background: var(--c-purple-g);color: var(--c-purple);border: 1px solid rgba(167,139,250,0.3); }
 
     /* ---- SEARCH ROW ---- */
     .search-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
@@ -273,7 +318,7 @@
     .billing-top { display: grid; grid-template-columns: 1fr; gap: 14px; }
     @media (min-width: 760px) { .billing-top { grid-template-columns: 1fr 1fr; } }
 
-    /* ---- CASCADES ---- */
+    /* ---- BILLING CASCADES ---- */
     .cascade-row {
       display: flex; gap: 8px; align-items: center;
       background: var(--c-surface2); border: 1px solid var(--c-border);
@@ -292,9 +337,6 @@
       display: flex; align-items: center; gap: 10px;
     }
     .months-count-wrap label { margin: 0; font-size: 11px; }
-    .months-count-wrap input {
-      width: 70px; text-align: center; font-size: 18px; font-weight: 800; font-family: 'Rajdhani', sans-serif; color: var(--c-orange);
-    }
 
     /* ---- MATRIX TABLE ---- */
     .matrix-wrap { overflow-x: auto; border: 1px solid var(--c-border); border-radius: 8px; max-height: 420px; overflow-y: auto; }
@@ -313,67 +355,33 @@
 
     /* ---- PROGRESS BAR ---- */
     #progressSection {
-      margin-top: 14px;
-      background: var(--c-surface2);
-      border: 1px solid var(--c-border);
-      border-radius: 10px;
-      padding: 16px;
-      display: none;
+      margin-top: 14px; background: var(--c-surface2); border: 1px solid var(--c-border);
+      border-radius: 10px; padding: 16px; display: none;
     }
     #progressSection.visible { display: block; animation: fadeSlide 0.3s ease; }
-    .progress-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 10px;
-    }
-    .progress-label {
-      font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700;
-      color: var(--c-text-dim); letter-spacing: 0.5px;
-    }
-    .progress-pct {
-      font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700;
-      color: var(--c-green); min-width: 52px; text-align: right;
-      transition: color 0.3s;
-    }
-    .progress-track {
-      width: 100%; height: 10px;
-      background: var(--c-border);
-      border-radius: 99px; overflow: hidden;
-      position: relative;
-    }
+    .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .progress-label { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; color: var(--c-text-dim); letter-spacing: 0.5px; }
+    .progress-pct { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: var(--c-green); min-width: 52px; text-align: right; transition: color 0.3s; }
+    .progress-track { width: 100%; height: 10px; background: var(--c-border); border-radius: 99px; overflow: hidden; position: relative; }
     .progress-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 99px;
+      height: 100%; width: 0%; border-radius: 99px;
       background: linear-gradient(90deg, var(--c-green-d), var(--c-green), #86efac);
       box-shadow: 0 0 10px rgba(34,197,94,0.5);
-      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); position: relative;
     }
     .progress-fill::after {
-      content: '';
-      position: absolute; top: 0; left: -60%; width: 60%; height: 100%;
+      content: ''; position: absolute; top: 0; left: -60%; width: 60%; height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       animation: shimmer 1.6s infinite;
     }
     @keyframes shimmer { to { left: 160%; } }
-
-    .progress-steps {
-      display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap;
-    }
+    .progress-steps { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
     .progress-step {
       font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px;
-      background: var(--c-border); color: var(--c-text-faint);
-      border: 1px solid transparent; transition: all 0.3s;
+      background: var(--c-border); color: var(--c-text-faint); border: 1px solid transparent; transition: all 0.3s;
     }
-    .progress-step.done {
-      background: var(--c-green-g); color: var(--c-green);
-      border-color: rgba(34,197,94,0.3);
-    }
-    .progress-step.active {
-      background: var(--c-orange-g); color: var(--c-orange);
-      border-color: rgba(249,115,22,0.4);
-      animation: pulse-glow 1.2s infinite;
-    }
+    .progress-step.done { background: var(--c-green-g); color: var(--c-green); border-color: rgba(34,197,94,0.3); }
+    .progress-step.active { background: var(--c-orange-g); color: var(--c-orange); border-color: rgba(249,115,22,0.4); animation: pulse-glow 1.2s infinite; }
 
     /* ---- EXECUTE BUTTON ---- */
     .execute-btn {
@@ -409,9 +417,7 @@
     /* ---- CONFIG BANNER ---- */
     #configBanner {
       background: linear-gradient(135deg, rgba(244,63,94,0.15), rgba(244,63,94,0.05));
-      border: 1px solid rgba(244,63,94,0.4);
-      border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
-      display: none;
+      border: 1px solid rgba(244,63,94,0.4); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; display: none;
     }
     #configBanner.visible { display: block; animation: fadeSlide 0.3s ease; }
     #configBanner h3 { color: var(--c-red); font-family: 'Rajdhani',sans-serif; font-size: 14px; margin-bottom: 8px; }
@@ -469,19 +475,21 @@
       <h3>⚠️ Backend URL Not Configured</h3>
       <p>Paste your Google Apps Script Web App URL below and click Save. This is stored in your browser only.</p>
       <div class="inp-row">
-        <input type="url" id="gasUrlInput" class="inp" placeholder="https://script.google.com/macros/s/.../exec">
+        <input type="url" id="gasUrlInput" class="inp" placeholder="https://script.google.com/macros/s/AKfycbyQj0kwFp9aCRot3vfsTyzCdfNF2lq3t1rNyHXkmxq1jAtipGvAE7Vve7BOTCTG7iqt/exec">
         <button class="btn btn-orange btn-sm" onclick="saveGasUrl()">💾 Save URL</button>
         <button class="btn btn-ghost btn-sm" onclick="document.getElementById('configBanner').classList.remove('visible')">✕</button>
       </div>
     </div>
 
-    <!-- STAFF TAB -->
+    <!-- ===================== STAFF TAB ===================== -->
     <div id="sec-staff" class="tab-content">
 
       <div class="stat-row">
         <div class="stat-chip"><div class="val" id="statTotal">—</div><div class="lbl">Total Staff</div></div>
         <div class="stat-chip"><div class="val" style="color:var(--c-green)" id="statActive">—</div><div class="lbl">Active</div></div>
         <div class="stat-chip"><div class="val" style="color:var(--c-red)" id="statInactive">—</div><div class="lbl">Inactive</div></div>
+        <div class="stat-chip"><div class="val" style="color:var(--c-blue)" id="statMEE">—</div><div class="lbl">M-EE Wing</div></div>
+        <div class="stat-chip"><div class="val" style="color:var(--c-purple)" id="statWEE">—</div><div class="lbl">W-EE Wing</div></div>
       </div>
 
       <div class="card">
@@ -489,31 +497,139 @@
           <div class="card-title"><span class="icon">📝</span> Add / Edit Staff Record</div>
           <button class="btn btn-ghost btn-sm" onclick="showConfigBanner()" title="Configure GAS URL">⚙️ API Settings</button>
         </div>
+
         <div class="quick-row">
           <select class="inp" id="quickSelect" onchange="loadToForm(this.value)">
             <option value="">⚡ Quick Load Employee…</option>
           </select>
           <button class="btn btn-ghost btn-sm" onclick="resetForm()">✕ Clear</button>
         </div>
+
         <form id="staffForm" onsubmit="handleStaffSubmit(event)">
           <div class="form-grid">
-            <div><label>Personal No ✱</label><input type="text" id="personalNo" class="inp" required placeholder="e.g. 1234"></div>
-            <div><label>Full Name ✱</label><input type="text" id="name" class="inp" required placeholder="Employee name"></div>
-            <div><label>Markaz</label><input type="text" id="markaz" class="inp" placeholder="Markaz"></div>
-            <div><label>Cell No</label><input type="text" id="cell" class="inp" placeholder="03xx-xxxxxxx"></div>
-            <div><label>Page No</label><input type="text" id="page" class="inp"></div>
-            <div><label>DDEO Code</label><input type="text" id="ddeoCode" class="inp"></div>
-            <div><label>CNIC</label><input type="text" id="cnic" class="inp" placeholder="xxxxx-xxxxxxx-x"></div>
-            <div><label>BPS Scale</label><input type="text" id="scale" class="inp" placeholder="e.g. 17"></div>
-            <div><label>Dy Office</label><input type="text" id="dyOffice" class="inp"></div>
-            <div><label>Designation</label><input type="text" id="designation" class="inp"></div>
-            <div><label>Status</label>
+
+            <!-- ── SECTION: Identity ── -->
+            <div class="form-section-label"><span>🪪</span> Identity &amp; Contact</div>
+
+            <div>
+              <label>Personal No ✱ <span style="color:var(--c-orange);font-size:9px;">(8 digits)</span></label>
+              <input type="text" id="personalNo" class="inp" required placeholder="e.g. 12345678" maxlength="8">
+            </div>
+            <div>
+              <label>Full Name ✱</label>
+              <input type="text" id="name" class="inp" required placeholder="Employee full name">
+            </div>
+            <div>
+              <label>Cell No</label>
+              <input type="text" id="cell" class="inp" placeholder="03xx-xxxxxxx">
+            </div>
+            <div>
+              <label>CNIC</label>
+              <input type="text" id="cnic" class="inp" placeholder="xxxxx-xxxxxxx-x">
+            </div>
+            <div>
+              <label>Gmail ✱</label>
+              <input type="email" id="gmail" class="inp" required placeholder="email@gmail.com">
+            </div>
+            <div>
+              <label>Status</label>
               <select id="status" class="inp">
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
               </select>
             </div>
-            <div><label>Gmail ✱</label><input type="email" id="gmail" class="inp" required placeholder="email@gmail.com"></div>
+
+            <!-- ── SECTION: Post Info ── -->
+            <div class="form-section-label"><span>🏛️</span> Post &amp; Service Details</div>
+
+            <div>
+              <label>BPS Scale</label>
+              <input type="text" id="scale" class="inp" placeholder="e.g. 17">
+            </div>
+            <div>
+              <label>Designation</label>
+              <input type="text" id="designation" class="inp" placeholder="Designation">
+            </div>
+            <div>
+              <label>Role</label>
+              <input type="text" id="role" class="inp" placeholder="e.g. AEO">
+            </div>
+            <div>
+              <label>Page No</label>
+              <input type="text" id="page" class="inp">
+            </div>
+            <div>
+              <label>DDEO Code</label>
+              <input type="text" id="ddeoCode" class="inp">
+            </div>
+            <div>
+              <label>He/She Receives Budget</label>
+              <select id="budget" class="inp">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <!-- ── SECTION: Wing → Tehsil → Markaz cascade ── -->
+            <div class="form-section-label" style="grid-column:1/-1;"><span>🗺️</span> Wing, Tehsil &amp; Markaz</div>
+
+          </div>
+
+          <!-- Wing / Tehsil / Markaz full-width cascade block -->
+          <div class="cascade-section">
+            <div class="cascade-section-title">Step 1 — Select Wing</div>
+            <div class="wing-selector" id="wingSelector">
+              <button type="button" class="wing-btn" id="wingBtnM" onclick="selectWing('M-EE')">
+                🔵 M-EE
+                <div><span class="wing-pill wing-pill-m">Male Wing</span></div>
+              </button>
+              <button type="button" class="wing-btn" id="wingBtnW" onclick="selectWing('W-EE')">
+                🟣 W-EE
+                <div><span class="wing-pill wing-pill-w">Female Wing</span></div>
+              </button>
+            </div>
+          </div>
+
+          <div class="cascade-section" id="tehsilBlock" style="display:none;">
+            <div class="cascade-section-title">Step 2 — Select Tehsil</div>
+            <div>
+              <label>Tehsil</label>
+              <select id="tehsilSelect" class="inp" onchange="onTehsilChange()">
+                <option value="">— Select Tehsil —</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cascade-section" id="markazBlock" style="display:none;">
+            <div class="cascade-section-title">
+              Step 3 — Select Markaz
+              <span class="markaz-count" id="markazCount">0 available</span>
+            </div>
+            <div>
+              <label>Markaz</label>
+              <select id="markazSelect" class="inp" onchange="onMarkazChange()">
+                <option value="">— Select Markaz —</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dy Office — locked, auto-generated -->
+          <div class="cascade-section" id="dyOfficeBlock" style="display:none;">
+            <div class="cascade-section-title">Auto-Generated Office</div>
+            <div>
+              <label>Dy Office <span style="color:var(--c-orange);">(auto-locked)</span></label>
+              <div class="locked-field-wrap">
+                <input type="text" id="dyOffice" class="inp" readonly placeholder="Select Wing + Tehsil above…">
+                <span class="locked-icon">🔒</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden inputs for wing/tehsil values -->
+          <input type="hidden" id="wingValue">
+          <input type="hidden" id="tehsilValue">
+
+          <div class="form-grid" style="margin-top:12px;">
             <div class="form-actions">
               <button type="submit" class="btn btn-orange">💾 Save to Database</button>
               <button type="button" class="btn btn-ghost" onclick="resetForm()">✕ Clear Form</button>
@@ -525,25 +641,32 @@
       <div class="card" style="padding:0; overflow:hidden;">
         <div style="padding:12px 16px; border-bottom:1px solid var(--c-border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
           <span style="font-family:'Rajdhani',sans-serif; font-weight:700; color:var(--c-text);">🗂️ Employee Database</span>
-          <input type="text" class="inp" id="search" oninput="filterTable()" placeholder="🔍 Search name or P.No…" style="max-width:220px;">
+          <input type="text" class="inp" id="search" oninput="filterTable()" placeholder="🔍 Search name, P.No, Tehsil, Wing…" style="max-width:260px;">
         </div>
-        <div class="tbl-wrap" style="border:none; border-radius:0; max-height:280px;">
+        <div class="tbl-wrap" style="border:none; border-radius:0; max-height:300px;">
           <table>
             <thead>
               <tr>
-                <th>P.No</th><th>Name</th><th>Markaz</th><th>Designation</th><th>Status</th>
+                <th>P.No</th>
+                <th>Name</th>
+                <th>Wing</th>
+                <th>Tehsil</th>
+                <th>Markaz</th>
+                <th>Designation</th>
+                <th>Budget</th>
+                <th>Status</th>
                 <th style="text-align:center;">Action</th>
               </tr>
             </thead>
             <tbody id="staffTableBody">
-              <tr class="loading-row"><td colspan="6"><span class="spinner"></span> Loading staff…</td></tr>
+              <tr class="loading-row"><td colspan="9"><span class="spinner"></span> Loading staff…</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- BILLING TAB -->
+    <!-- ===================== BILLING TAB ===================== -->
     <div id="sec-billing" class="tab-content hidden">
       <div class="billing-top">
 
@@ -590,7 +713,6 @@
 
       <div id="gridSection" class="hidden">
         <div class="sec-div">📊 Step 2 — Deduction Input Matrix</div>
-
         <div class="card" style="padding:0; overflow:hidden;">
           <div style="padding:12px 16px; border-bottom:1px solid var(--c-border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
             <span style="font-family:'Rajdhani',sans-serif; font-weight:700;">Active Staff Matrix</span>
@@ -618,21 +740,38 @@
           </div>
           <div class="progress-steps" id="progressSteps"></div>
         </div>
-
       </div>
     </div>
   </div>
 
   <script>
-    const monthOptions = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    const yearOptions  = ["2024","2025","2026","2027","2028"];
-    const ALLOWANCE    = 25000;
+    // ============================================================
+    // CONSTANTS
+    // ============================================================
+    const monthOptions     = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const yearOptions      = ["2024","2025","2026","2027","2028"];
+    const ALLOWANCE        = 25000;
     const AVG_SECS_PER_EMP = 8;
 
+    // ============================================================
+    // STATE
+    // ============================================================
     let employeeCache         = [];
     let currentSelectedMonths = [];
     let liveHistoryCache      = {};
 
+    // Lookup data loaded from backend (cols S, T, U of Raw Sheet)
+    let lookupTehsils   = [];   // string[]
+    let lookupMarkazList= [];   // [{markaz, wing}]
+
+    // Current cascade selections on the form
+    let selectedWing   = '';
+    let selectedTehsil = '';
+    let selectedMarkaz = '';
+
+    // ============================================================
+    // GAS COMMUNICATION
+    // ============================================================
     function getGasUrl() { return localStorage.getItem('gasWebAppUrl') || ''; }
 
     function saveGasUrl() {
@@ -642,8 +781,7 @@
       localStorage.setItem('gasWebAppUrl', url);
       document.getElementById('configBanner').classList.remove('visible');
       msgToast('✅ GAS URL saved! Reloading data…');
-      fetchEmployeeData();
-      loadLiveHistory();
+      initApp();
     }
 
     function showConfigBanner() {
@@ -691,14 +829,129 @@
       });
     }
 
+    // ============================================================
+    // INIT
+    // ============================================================
     window.onload = function() {
       const saved = getGasUrl();
       if (!saved) { showConfigBanner(); document.getElementById('liveEmpCount').textContent = '● NOT CONFIGURED'; }
-      else { fetchEmployeeData(); }
+      else { initApp(); }
       buildMonthCascades(1);
       setupHistoryYearFilter();
     };
 
+    async function initApp() {
+      await Promise.all([fetchEmployeeData(), fetchLookupData()]);
+    }
+
+    // ============================================================
+    // LOOKUP DATA (Tehsil, Markaz, Wing from cols S, T, U)
+    // ============================================================
+    async function fetchLookupData() {
+      try {
+        const data = await gasCall('getLookupData');
+        lookupTehsils    = data.tehsils    || [];
+        lookupMarkazList = data.markazList || [];
+      } catch (err) {
+        console.warn('Could not fetch lookup data:', err.message);
+      }
+    }
+
+    // ============================================================
+    // WING → TEHSIL → MARKAZ CASCADE LOGIC
+    // ============================================================
+    function selectWing(wing) {
+      selectedWing   = wing;
+      selectedTehsil = '';
+      selectedMarkaz = '';
+
+      // Update wing buttons
+      document.getElementById('wingBtnM').className = 'wing-btn' + (wing === 'M-EE' ? ' active-m' : '');
+      document.getElementById('wingBtnW').className = 'wing-btn' + (wing === 'W-EE' ? ' active-w' : '');
+      document.getElementById('wingValue').value = wing;
+
+      // Show Tehsil block and populate
+      const tehsilBlock = document.getElementById('tehsilBlock');
+      tehsilBlock.style.display = 'block';
+
+      const tehsilSel = document.getElementById('tehsilSelect');
+      tehsilSel.innerHTML = '<option value="">— Select Tehsil —</option>';
+
+      // Filter tehsils: only those that have at least one Markaz matching this wing
+      const wingKeyword = wing === 'M-EE' ? 'Male' : 'Female';
+      const relevantTehsils = lookupTehsils.filter(t =>
+        lookupMarkazList.some(m => m.wing === wing && markazBelongsToTehsil(m.markaz, t))
+      );
+
+      relevantTehsils.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t; opt.textContent = t;
+        tehsilSel.appendChild(opt);
+      });
+
+      // Hide downstream
+      document.getElementById('markazBlock').style.display  = 'none';
+      document.getElementById('dyOfficeBlock').style.display = 'none';
+      document.getElementById('tehsilValue').value = '';
+      document.getElementById('dyOffice').value    = '';
+
+      // Clear markaz field in form
+      selectedMarkaz = '';
+      document.getElementById('markazSelect').innerHTML = '<option value="">— Select Markaz —</option>';
+    }
+
+    /**
+     * Determines if a markaz name belongs to a tehsil.
+     * Strategy: markaz name contains the tehsil name (case-insensitive).
+     */
+    function markazBelongsToTehsil(markazName, tehsilName) {
+      return markazName.toLowerCase().includes(tehsilName.toLowerCase());
+    }
+
+    function onTehsilChange() {
+      selectedTehsil = document.getElementById('tehsilSelect').value;
+      selectedMarkaz = '';
+      document.getElementById('tehsilValue').value = selectedTehsil;
+
+      if (!selectedTehsil) {
+        document.getElementById('markazBlock').style.display   = 'none';
+        document.getElementById('dyOfficeBlock').style.display = 'none';
+        document.getElementById('dyOffice').value = '';
+        return;
+      }
+
+      // Filter markazList by wing AND tehsil
+      const filtered = lookupMarkazList.filter(m =>
+        m.wing === selectedWing && markazBelongsToTehsil(m.markaz, selectedTehsil)
+      );
+
+      const markazSel = document.getElementById('markazSelect');
+      markazSel.innerHTML = '<option value="">— Select Markaz —</option>';
+      filtered.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.markaz; opt.textContent = m.markaz;
+        markazSel.appendChild(opt);
+      });
+
+      document.getElementById('markazCount').textContent = filtered.length + ' available';
+      document.getElementById('markazBlock').style.display   = 'block';
+      document.getElementById('dyOfficeBlock').style.display = 'none';
+      document.getElementById('dyOffice').value = '';
+    }
+
+    function onMarkazChange() {
+      selectedMarkaz = document.getElementById('markazSelect').value;
+      if (!selectedMarkaz) return;
+
+      // Auto-generate Dy Office
+      const dyVal = 'DDEO (' + selectedWing + ') ' + selectedTehsil;
+      document.getElementById('dyOffice').value = dyVal;
+      document.getElementById('dyOfficeBlock').style.display = 'block';
+    }
+
+    // ============================================================
+    // TAB SWITCHING
+    // ============================================================
     function switchTab(id) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
@@ -706,6 +959,9 @@
       document.getElementById('sec-' + id).classList.remove('hidden');
     }
 
+    // ============================================================
+    // TOAST
+    // ============================================================
     function msgToast(msg, isError = false) {
       const t = document.getElementById('toast');
       t.textContent = msg; t.className = 'toast ' + (isError ? 'error' : 'success');
@@ -713,79 +969,200 @@
       t._timer = setTimeout(() => { t.style.display = 'none'; }, 5000);
     }
 
+    // ============================================================
+    // EMPLOYEE DATA
+    // ============================================================
     async function fetchEmployeeData() {
       try {
         const data = await gasCall('getEmployees');
         employeeCache = Array.isArray(data) ? data : [];
-        renderStaffTable(employeeCache); populateQuickSelect(employeeCache); updateStatChips(employeeCache);
+        renderStaffTable(employeeCache);
+        populateQuickSelect(employeeCache);
+        updateStatChips(employeeCache);
         const active = employeeCache.filter(e => e.status === 'Active').length;
         document.getElementById('liveEmpCount').textContent = `● ${active} ACTIVE`;
       } catch (err) {
         document.getElementById('liveEmpCount').textContent = '● ERROR';
         msgToast('❌ Failed to load staff: ' + err.message, true);
-        document.getElementById('staffTableBody').innerHTML = '<tr class="loading-row"><td colspan="6">❌ Could not load staff. Check API settings.</td></tr>';
+        document.getElementById('staffTableBody').innerHTML = '<tr class="loading-row"><td colspan="9">❌ Could not load staff. Check API settings.</td></tr>';
       }
     }
 
     function updateStatChips(data) {
-      const active = data.filter(e => e.status === 'Active').length;
+      const active   = data.filter(e => e.status === 'Active').length;
+      const mee      = data.filter(e => e.wing === 'M-EE').length;
+      const wee      = data.filter(e => e.wing === 'W-EE').length;
       document.getElementById('statTotal').textContent    = data.length;
       document.getElementById('statActive').textContent   = active;
       document.getElementById('statInactive').textContent = data.length - active;
+      document.getElementById('statMEE').textContent      = mee;
+      document.getElementById('statWEE').textContent      = wee;
     }
 
     function renderStaffTable(data) {
       const body = document.getElementById('staffTableBody');
-      if (!data || data.length === 0) { body.innerHTML = '<tr class="loading-row"><td colspan="6">No records found.</td></tr>'; return; }
+      if (!data || data.length === 0) {
+        body.innerHTML = '<tr class="loading-row"><td colspan="9">No records found.</td></tr>';
+        return;
+      }
       body.innerHTML = data.map(e => `
         <tr>
           <td class="mono" style="color:var(--c-orange);">${e.personalNo}</td>
           <td style="font-weight:600;">${e.name}</td>
-          <td style="color:var(--c-text-dim);">${e.markaz || '—'}</td>
+          <td>
+            ${e.wing === 'M-EE'
+              ? '<span class="badge badge-blue">M-EE</span>'
+              : e.wing === 'W-EE'
+                ? '<span class="badge badge-purple">W-EE</span>'
+                : '<span class="badge" style="opacity:.4;">—</span>'}
+          </td>
+          <td style="color:var(--c-text-dim);">${e.tehsil || '—'}</td>
+          <td style="color:var(--c-text-dim); max-width:140px; overflow:hidden; text-overflow:ellipsis;">${e.markaz || '—'}</td>
           <td style="color:var(--c-text-dim);">${e.designation || '—'}</td>
+          <td>
+            ${e.budget === 'Yes'
+              ? '<span class="badge badge-teal">Yes</span>'
+              : '<span class="badge badge-red">No</span>'}
+          </td>
           <td><span class="badge ${e.status === 'Active' ? 'badge-green' : 'badge-red'}">${e.status}</span></td>
-          <td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="loadToForm('${e.personalNo}')">✏️ Edit</button></td>
+          <td style="text-align:center;">
+            <button class="btn btn-ghost btn-sm" onclick="loadToForm('${e.personalNo}')">✏️ Edit</button>
+          </td>
         </tr>`).join('');
     }
 
     function populateQuickSelect(data) {
       const sel = document.getElementById('quickSelect');
       sel.innerHTML = '<option value="">⚡ Quick Load Employee…</option>';
-      data.forEach(e => { const opt = document.createElement('option'); opt.value = e.personalNo; opt.textContent = `${e.personalNo} — ${e.name}`; sel.appendChild(opt); });
+      data.forEach(e => {
+        const opt = document.createElement('option');
+        opt.value = e.personalNo;
+        opt.textContent = `${e.personalNo} — ${e.name}`;
+        sel.appendChild(opt);
+      });
     }
 
     function loadToForm(pNo) {
       if (!pNo) { resetForm(); return; }
       const e = employeeCache.find(x => String(x.personalNo) === String(pNo));
       if (!e) return;
-      ['personalNo','name','markaz','cell','page','ddeoCode','cnic','scale','dyOffice','designation','status','gmail'].forEach(k => { const el = document.getElementById(k); if (el) el.value = e[k] || ''; });
+
+      // Fill standard fields
+      ['personalNo','name','cell','cnic','scale','designation','role',
+       'page','ddeoCode','gmail','status','budget'].forEach(k => {
+        const el = document.getElementById(k);
+        if (el) el.value = e[k] || '';
+      });
+
+      // Lock Personal No when editing
       const pnEl = document.getElementById('personalNo');
       pnEl.readOnly = true; pnEl.style.opacity = '0.5'; pnEl.style.cursor = 'not-allowed';
+
+      // Restore wing/tehsil/markaz cascade
+      if (e.wing) {
+        selectWing(e.wing);
+        // After selectWing sets up tehsil options, set the tehsil value
+        if (e.tehsil) {
+          const tehsilSel = document.getElementById('tehsilSelect');
+          tehsilSel.value = e.tehsil;
+          onTehsilChange();
+          // After tehsil change populates markaz options, set the markaz value
+          if (e.markaz) {
+            const markazSel = document.getElementById('markazSelect');
+            markazSel.value = e.markaz;
+            onMarkazChange();
+          }
+        }
+      }
+
+      // Restore Dy Office display
+      if (e.dyOffice) document.getElementById('dyOffice').value = e.dyOffice;
+
       document.getElementById('quickSelect').value = pNo;
       switchTab('staff');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function resetForm() {
-      document.getElementById('staffForm').reset(); document.getElementById('quickSelect').value = '';
-      const pnEl = document.getElementById('personalNo'); pnEl.readOnly = false; pnEl.style.opacity = ''; pnEl.style.cursor = '';
+      document.getElementById('staffForm').reset();
+      document.getElementById('quickSelect').value = '';
+      const pnEl = document.getElementById('personalNo');
+      pnEl.readOnly = false; pnEl.style.opacity = ''; pnEl.style.cursor = '';
+
+      // Reset cascade
+      selectedWing = ''; selectedTehsil = ''; selectedMarkaz = '';
+      document.getElementById('wingBtnM').className = 'wing-btn';
+      document.getElementById('wingBtnW').className = 'wing-btn';
+      document.getElementById('wingValue').value    = '';
+      document.getElementById('tehsilValue').value  = '';
+      document.getElementById('tehsilBlock').style.display   = 'none';
+      document.getElementById('markazBlock').style.display   = 'none';
+      document.getElementById('dyOfficeBlock').style.display = 'none';
+      document.getElementById('dyOffice').value = '';
     }
 
     async function handleStaffSubmit(e) {
       e.preventDefault();
-      const payload = { personalNo: document.getElementById('personalNo').value, name: document.getElementById('name').value, markaz: document.getElementById('markaz').value, cell: document.getElementById('cell').value, page: document.getElementById('page').value, ddeoCode: document.getElementById('ddeoCode').value, cnic: document.getElementById('cnic').value, scale: document.getElementById('scale').value, dyOffice: document.getElementById('dyOffice').value, designation: document.getElementById('designation').value, status: document.getElementById('status').value, gmail: document.getElementById('gmail').value };
-      try { const msg = await gasPost('saveStaff', { staffData: payload }); msgToast(msg); resetForm(); fetchEmployeeData(); }
-      catch (err) { msgToast('❌ Save failed: ' + err.message, true); }
+
+      if (!selectedWing)   { msgToast('⚠️ Please select a Wing (M-EE or W-EE).', true); return; }
+      if (!selectedTehsil) { msgToast('⚠️ Please select a Tehsil.', true); return; }
+      if (!document.getElementById('markazSelect').value) { msgToast('⚠️ Please select a Markaz.', true); return; }
+
+      const payload = {
+        personalNo:  document.getElementById('personalNo').value,
+        name:        document.getElementById('name').value,
+        markaz:      document.getElementById('markazSelect').value,
+        cell:        document.getElementById('cell').value,
+        page:        document.getElementById('page').value,
+        ddeoCode:    document.getElementById('ddeoCode').value,
+        cnic:        document.getElementById('cnic').value,
+        scale:       document.getElementById('scale').value,
+        designation: document.getElementById('designation').value,
+        status:      document.getElementById('status').value,
+        gmail:       document.getElementById('gmail').value,
+        budget:      document.getElementById('budget').value,
+        role:        document.getElementById('role').value,
+        wing:        selectedWing,
+        tehsil:      selectedTehsil
+        // dyOffice is generated server-side; links preserved server-side
+      };
+
+      try {
+        const msg = await gasPost('saveStaff', { staffData: payload });
+        msgToast(msg);
+        resetForm();
+        fetchEmployeeData();
+      } catch (err) {
+        msgToast('❌ Save failed: ' + err.message, true);
+      }
     }
 
+    // ============================================================
+    // SEARCH / FILTER TABLE
+    // ============================================================
     function filterTable() {
       const val = document.getElementById('search').value.toLowerCase();
-      renderStaffTable(employeeCache.filter(e => e.name.toLowerCase().includes(val) || String(e.personalNo).includes(val)));
+      renderStaffTable(employeeCache.filter(e =>
+        e.name.toLowerCase().includes(val) ||
+        String(e.personalNo).includes(val) ||
+        (e.tehsil || '').toLowerCase().includes(val) ||
+        (e.wing   || '').toLowerCase().includes(val) ||
+        (e.markaz || '').toLowerCase().includes(val)
+      ));
     }
 
+    // ============================================================
+    // HISTORY
+    // ============================================================
     function setupHistoryYearFilter() {
-      const sel = document.getElementById('historyYearFilter');
+      const sel  = document.getElementById('historyYearFilter');
       const curY = new Date().getFullYear();
-      yearOptions.forEach(y => { const opt = document.createElement('option'); opt.value = y; opt.textContent = y; if (parseInt(y) === curY) opt.selected = true; sel.appendChild(opt); });
+      yearOptions.forEach(y => {
+        const opt = document.createElement('option');
+        opt.value = y; opt.textContent = y;
+        if (parseInt(y) === curY) opt.selected = true;
+        sel.appendChild(opt);
+      });
       if (getGasUrl()) loadLiveHistory();
     }
 
@@ -796,11 +1173,26 @@
       try {
         const data = await gasCall('getHistoricalDeductions', { year });
         liveHistoryCache[year] = data || [];
-        if (!data || data.length === 0) { body.innerHTML = `<tr class="loading-row"><td colspan="5">No deductions found for ${year}</td></tr>`; return; }
-        body.innerHTML = data.map(row => `<tr><td class="mono" style="color:var(--c-orange);">${row.personalNo}</td><td style="font-weight:600;">${row.name}</td><td style="color:var(--c-text-dim);">${row.year}</td><td style="color:var(--c-text-dim);">${row.month}</td><td style="text-align:right; font-family:'Rajdhani',sans-serif; font-weight:700; color:var(--c-red);">${parseFloat(row.amount).toLocaleString()}</td></tr>`).join('');
-      } catch (err) { body.innerHTML = `<tr class="loading-row"><td colspan="5">❌ ${err.message}</td></tr>`; }
+        if (!data || data.length === 0) {
+          body.innerHTML = `<tr class="loading-row"><td colspan="5">No deductions found for ${year}</td></tr>`;
+          return;
+        }
+        body.innerHTML = data.map(row => `
+          <tr>
+            <td class="mono" style="color:var(--c-orange);">${row.personalNo}</td>
+            <td style="font-weight:600;">${row.name}</td>
+            <td style="color:var(--c-text-dim);">${row.year}</td>
+            <td style="color:var(--c-text-dim);">${row.month}</td>
+            <td style="text-align:right; font-family:'Rajdhani',sans-serif; font-weight:700; color:var(--c-red);">${parseFloat(row.amount).toLocaleString()}</td>
+          </tr>`).join('');
+      } catch (err) {
+        body.innerHTML = `<tr class="loading-row"><td colspan="5">❌ ${err.message}</td></tr>`;
+      }
     }
 
+    // ============================================================
+    // BILLING — MONTH CASCADES
+    // ============================================================
     function buildMonthCascades(count) {
       const val = parseInt(count);
       if (isNaN(val) || val < 1 || val > 4) return;
@@ -811,10 +1203,19 @@
       for (let i = 0; i < val; i++) {
         const div = document.createElement('div');
         div.className = 'cascade-row';
-        div.innerHTML = `<span class="cascade-num">#${i+1}</span><select id="cascadeMonth_${i}" class="inp" onchange="syncCascadeOptions()">${monthOptions.map((m, idx) => `<option value="${m}" ${idx===0?'selected':''}>${m}</option>`).join('')}</select><select id="cascadeYear_${i}" class="inp year-sel">${yearOptions.map(y => `<option ${parseInt(y)===curYear?'selected':''}>${y}</option>`).join('')}</select>`;
+        div.innerHTML = `<span class="cascade-num">#${i+1}</span>
+          <select id="cascadeMonth_${i}" class="inp" onchange="syncCascadeOptions()">
+            ${monthOptions.map((m,idx) => `<option value="${m}" ${idx===0?'selected':''}>${m}</option>`).join('')}
+          </select>
+          <select id="cascadeYear_${i}" class="inp year-sel">
+            ${yearOptions.map(y => `<option ${parseInt(y)===curYear?'selected':''}>${y}</option>`).join('')}
+          </select>`;
         container.appendChild(div);
       }
-      for (let i = 0; i < val; i++) { const sel = document.getElementById(`cascadeMonth_${i}`); if (sel) sel.value = monthOptions[i % 12]; }
+      for (let i = 0; i < val; i++) {
+        const sel = document.getElementById(`cascadeMonth_${i}`);
+        if (sel) sel.value = monthOptions[i % 12];
+      }
       syncCascadeOptions();
     }
 
@@ -822,26 +1223,49 @@
       const count = parseInt(document.getElementById('numMonthsInput').value);
       if (isNaN(count)) return;
       const selections = [];
-      for (let i = 0; i < count; i++) { const mSel = document.getElementById(`cascadeMonth_${i}`); const ySel = document.getElementById(`cascadeYear_${i}`); if (mSel && ySel) selections.push({ month: mSel.value, year: ySel.value, idx: i }); }
       for (let i = 0; i < count; i++) {
-        const mSel = document.getElementById(`cascadeMonth_${i}`); const ySel = document.getElementById(`cascadeYear_${i}`);
+        const mSel = document.getElementById(`cascadeMonth_${i}`);
+        const ySel = document.getElementById(`cascadeYear_${i}`);
+        if (mSel && ySel) selections.push({ month: mSel.value, year: ySel.value, idx: i });
+      }
+      for (let i = 0; i < count; i++) {
+        const mSel = document.getElementById(`cascadeMonth_${i}`);
+        const ySel = document.getElementById(`cascadeYear_${i}`);
         if (!mSel || !ySel) continue;
         const myYear = ySel.value; const myMonth = mSel.value;
         const takenMonths = new Set(selections.filter(s => s.idx !== i && s.year === myYear).map(s => s.month));
-        mSel.innerHTML = monthOptions.map(m => { const disabled = takenMonths.has(m) && m !== myMonth ? 'disabled' : ''; const style = takenMonths.has(m) && m !== myMonth ? 'style="color:var(--c-text-faint); background:rgba(0,0,0,0.4);"' : ''; const selected = m === myMonth ? 'selected' : ''; return `<option value="${m}" ${disabled} ${selected} ${style}>${m}</option>`; }).join('');
+        mSel.innerHTML = monthOptions.map(m => {
+          const disabled = takenMonths.has(m) && m !== myMonth ? 'disabled' : '';
+          const style    = takenMonths.has(m) && m !== myMonth ? 'style="color:var(--c-text-faint); background:rgba(0,0,0,0.4);"' : '';
+          const selected = m === myMonth ? 'selected' : '';
+          return `<option value="${m}" ${disabled} ${selected} ${style}>${m}</option>`;
+        }).join('');
       }
-      for (let i = 0; i < count; i++) { const ySel = document.getElementById(`cascadeYear_${i}`); if (ySel) ySel.onchange = syncCascadeOptions; }
+      for (let i = 0; i < count; i++) {
+        const ySel = document.getElementById(`cascadeYear_${i}`);
+        if (ySel) ySel.onchange = syncCascadeOptions;
+      }
     }
 
+    // ============================================================
+    // BILLING — DEDUCTION MATRIX
+    // ============================================================
     async function generateDeductionTableGrid() {
       const count = parseInt(document.getElementById('numMonthsInput').value);
       currentSelectedMonths = [];
-      for (let i = 0; i < count; i++) { const m = document.getElementById(`cascadeMonth_${i}`).value; const y = document.getElementById(`cascadeYear_${i}`).value; currentSelectedMonths.push(`${m} ${y}`); }
-      if (new Set(currentSelectedMonths).size !== currentSelectedMonths.length) { msgToast('⚠️ Duplicate month+year detected!', true); return; }
+      for (let i = 0; i < count; i++) {
+        const m = document.getElementById(`cascadeMonth_${i}`).value;
+        const y = document.getElementById(`cascadeYear_${i}`).value;
+        currentSelectedMonths.push(`${m} ${y}`);
+      }
+      if (new Set(currentSelectedMonths).size !== currentSelectedMonths.length) {
+        msgToast('⚠️ Duplicate month+year detected!', true); return;
+      }
       const activeEmps = employeeCache.filter(e => e.status === 'Active');
       if (activeEmps.length === 0) { msgToast('⚠️ No Active employees found.', true); return; }
-      const selectedYears = [...new Set(currentSelectedMonths.map(ms => ms.trim().split(' ')[1]))];
-      const historyByYear = await fetchHistoriesForYears(selectedYears);
+
+      const selectedYears  = [...new Set(currentSelectedMonths.map(ms => ms.trim().split(' ')[1]))];
+      const historyByYear  = await fetchHistoriesForYears(selectedYears);
       buildGrid(activeEmps, historyByYear);
     }
 
@@ -849,56 +1273,124 @@
       const result = {};
       await Promise.all(years.map(async year => {
         if (liveHistoryCache[year] !== undefined) { result[year] = liveHistoryCache[year]; }
-        else { try { const data = await gasCall('getHistoricalDeductions', { year }); liveHistoryCache[year] = data || []; result[year] = liveHistoryCache[year]; } catch { result[year] = []; } }
+        else {
+          try {
+            const data = await gasCall('getHistoricalDeductions', { year });
+            liveHistoryCache[year] = data || [];
+            result[year] = liveHistoryCache[year];
+          } catch { result[year] = []; }
+        }
       }));
       return result;
     }
 
     function buildGrid(activeEmps, historyByYear) {
       const priorDeductionMap = {};
-      Object.keys(historyByYear).forEach(year => { (historyByYear[year] || []).forEach(row => { const key = `${String(row.personalNo)}|${year}`; if (!priorDeductionMap[key]) priorDeductionMap[key] = []; priorDeductionMap[key].push(row); }); });
+      Object.keys(historyByYear).forEach(year => {
+        (historyByYear[year] || []).forEach(row => {
+          const key = `${String(row.personalNo)}|${year}`;
+          if (!priorDeductionMap[key]) priorDeductionMap[key] = [];
+          priorDeductionMap[key].push(row);
+        });
+      });
+
       const headerRow = document.getElementById('matrixHeader');
       let hHtml = `<th class="th-info" style="min-width:80px;">P.No</th><th class="th-info" style="min-width:140px;">Name</th>`;
-      currentSelectedMonths.forEach(ms => { hHtml += `<th class="th-gross">${ms}<br><small>Gross (25,000)</small></th><th class="th-ded">${ms}<br><small>Deduction</small></th>`; });
+      currentSelectedMonths.forEach(ms => {
+        hHtml += `<th class="th-gross">${ms}<br><small>Gross (25,000)</small></th>
+                  <th class="th-ded">${ms}<br><small>Deduction</small></th>`;
+      });
       headerRow.innerHTML = hHtml;
+
       const body = document.getElementById('matrixBody');
       body.innerHTML = activeEmps.map(emp => {
         let totalPriorCount = 0;
-        Object.keys(historyByYear).forEach(year => { const key = `${String(emp.personalNo)}|${year}`; if (priorDeductionMap[key]) totalPriorCount += priorDeductionMap[key].length; });
+        Object.keys(historyByYear).forEach(year => {
+          const key = `${String(emp.personalNo)}|${year}`;
+          if (priorDeductionMap[key]) totalPriorCount += priorDeductionMap[key].length;
+        });
         let cells = '';
-        currentSelectedMonths.forEach((ms, idx) => { const parts = ms.trim().split(' '); const yearStr = parts[1] || ''; const key = `${String(emp.personalNo)}|${yearStr}`; const hasPrior = (priorDeductionMap[key] || []).length > 0; cells += `<td class="gross-cell">25,000</td><td style="text-align:center; padding:6px 8px; vertical-align:middle;"><input type="number" value="0" min="0" max="25000" class="ded-input ${hasPrior ? 'has-prior' : ''}" data-monthidx="${idx}" data-personalno="${emp.personalNo}" oninput="updateNetDisplay(this, ${ALLOWANCE})"></td>`; });
-        return `<tr data-personalno="${emp.personalNo}"><td class="mono" style="color:var(--c-orange);">${emp.personalNo}</td><td style="font-weight:600;">${emp.name}${totalPriorCount > 0 ? `<div style="margin-top:6px;"><span class="badge badge-orange">${totalPriorCount} Prior Deduction(s)</span></div>` : ''}</td>${cells}</tr>`;
+        currentSelectedMonths.forEach((ms, idx) => {
+          const parts   = ms.trim().split(' ');
+          const yearStr = parts[1] || '';
+          const key     = `${String(emp.personalNo)}|${yearStr}`;
+          const hasPrior= (priorDeductionMap[key] || []).length > 0;
+          cells += `<td class="gross-cell">25,000</td>
+                    <td style="text-align:center; padding:6px 8px; vertical-align:middle;">
+                      <input type="number" value="0" min="0" max="25000"
+                        class="ded-input ${hasPrior ? 'has-prior' : ''}"
+                        data-monthidx="${idx}" data-personalno="${emp.personalNo}"
+                        oninput="updateNetDisplay(this, ${ALLOWANCE})">
+                    </td>`;
+        });
+        return `<tr data-personalno="${emp.personalNo}">
+          <td class="mono" style="color:var(--c-orange);">${emp.personalNo}</td>
+          <td style="font-weight:600;">${emp.name}
+            ${totalPriorCount > 0 ? `<div style="margin-top:6px;"><span class="badge badge-orange">${totalPriorCount} Prior Deduction(s)</span></div>` : ''}
+          </td>
+          ${cells}
+        </tr>`;
       }).join('');
+
       document.getElementById('matrixActiveCount').textContent = `${activeEmps.length} Active`;
       document.getElementById('gridSection').classList.remove('hidden');
       document.getElementById('progressSection').classList.remove('visible');
       document.getElementById('gridSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function updateNetDisplay(inp, gross) { const val = parseFloat(inp.value || 0); if (val < 0) inp.value = 0; if (val > gross) inp.value = gross; }
+    function updateNetDisplay(inp, gross) {
+      const val = parseFloat(inp.value || 0);
+      if (val < 0)     inp.value = 0;
+      if (val > gross) inp.value = gross;
+    }
 
+    // ============================================================
+    // PROGRESS BAR
+    // ============================================================
     let _progressTimer = null;
 
     function startProgressBar(totalEmployees) {
-      const section = document.getElementById('progressSection'); const fill = document.getElementById('progressFill');
-      const pct = document.getElementById('progressPct'); const label = document.getElementById('progressLabel'); const steps = document.getElementById('progressSteps');
-      const totalMs = totalEmployees * AVG_SECS_PER_EMP * 1000; const startTime = Date.now();
-      const stages = [{ label: 'Initialising', pct: 2 }, { label: 'Writing Data', pct: 15 }, { label: 'Generating PDFs', pct: 55 }, { label: 'Sending Emails', pct: 80 }, { label: 'Saving History', pct: 95 }, { label: 'Completing', pct: 100 }];
+      const section = document.getElementById('progressSection');
+      const fill    = document.getElementById('progressFill');
+      const pct     = document.getElementById('progressPct');
+      const label   = document.getElementById('progressLabel');
+      const steps   = document.getElementById('progressSteps');
+      const totalMs = totalEmployees * AVG_SECS_PER_EMP * 1000;
+      const startTime = Date.now();
+      const stages = [
+        { label: 'Initialising',    pct: 2  },
+        { label: 'Writing Data',    pct: 15 },
+        { label: 'Generating PDFs', pct: 55 },
+        { label: 'Sending Emails',  pct: 80 },
+        { label: 'Saving History',  pct: 95 },
+        { label: 'Completing',      pct: 100}
+      ];
       steps.innerHTML = stages.map((s, i) => `<span class="progress-step" id="pstep_${i}">${s.label}</span>`).join('');
       section.classList.add('visible');
       if (_progressTimer) clearInterval(_progressTimer);
       _progressTimer = setInterval(() => {
-        const elapsed = Date.now() - startTime; const rawPct = Math.min(95, (elapsed / totalMs) * 100); const rounded = Math.floor(rawPct);
+        const elapsed = Date.now() - startTime;
+        const rawPct  = Math.min(95, (elapsed / totalMs) * 100);
+        const rounded = Math.floor(rawPct);
         fill.style.width = rounded + '%'; pct.textContent = rounded + '%';
-        let curStage = 0; for (let i = 0; i < stages.length; i++) { if (rounded >= stages[i].pct) curStage = i; }
-        stages.forEach((s, i) => { const el = document.getElementById(`pstep_${i}`); if (!el) return; if (i < curStage) { el.className = 'progress-step done'; } else if (i === curStage) { el.className = 'progress-step active'; label.textContent = s.label + '…'; } else { el.className = 'progress-step'; } });
+        let curStage = 0;
+        for (let i = 0; i < stages.length; i++) { if (rounded >= stages[i].pct) curStage = i; }
+        stages.forEach((s, i) => {
+          const el = document.getElementById(`pstep_${i}`);
+          if (!el) return;
+          if (i < curStage)      { el.className = 'progress-step done'; }
+          else if (i === curStage){ el.className = 'progress-step active'; label.textContent = s.label + '…'; }
+          else                   { el.className = 'progress-step'; }
+        });
       }, 300);
     }
 
     function completeProgressBar(successMsg) {
       if (_progressTimer) { clearInterval(_progressTimer); _progressTimer = null; }
-      document.getElementById('progressFill').style.width = '100%'; document.getElementById('progressPct').textContent = '100%';
-      document.getElementById('progressPct').style.color = 'var(--c-green)'; document.getElementById('progressLabel').textContent = '✅ Pipeline Complete!';
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressPct').textContent  = '100%';
+      document.getElementById('progressPct').style.color  = 'var(--c-green)';
+      document.getElementById('progressLabel').textContent = '✅ Pipeline Complete!';
       document.querySelectorAll('.progress-step').forEach(el => { el.className = 'progress-step done'; });
       msgToast('✅ ' + successMsg);
       setTimeout(() => { document.getElementById('progressSection').classList.remove('visible'); }, 4000);
@@ -906,27 +1398,46 @@
 
     function failProgressBar(errMsg) {
       if (_progressTimer) { clearInterval(_progressTimer); _progressTimer = null; }
-      document.getElementById('progressLabel').textContent = '❌ Pipeline Failed'; document.getElementById('progressPct').style.color = 'var(--c-red)';
+      document.getElementById('progressLabel').textContent = '❌ Pipeline Failed';
+      document.getElementById('progressPct').style.color   = 'var(--c-red)';
       document.getElementById('progressFill').style.background = 'linear-gradient(90deg, var(--c-red), #fb7185)';
       msgToast('❌ Error: ' + errMsg, true);
     }
 
+    // ============================================================
+    // EXECUTE PIPELINE
+    // ============================================================
     async function executeProcessingPipeline() {
       const btn = document.getElementById('runPipelineBtn');
-      btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Compiling &amp; Dispatching…';
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Compiling &amp; Dispatching…';
+
       const gridDataRows = [];
-      document.querySelectorAll('#matrixBody tr').forEach(tr => { const deductions = []; tr.querySelectorAll('.ded-input').forEach(inp => { deductions[parseInt(inp.dataset.monthidx)] = parseFloat(inp.value || 0); }); gridDataRows.push({ personalNo: tr.dataset.personalno, deductions }); });
+      document.querySelectorAll('#matrixBody tr').forEach(tr => {
+        const deductions = [];
+        tr.querySelectorAll('.ded-input').forEach(inp => {
+          deductions[parseInt(inp.dataset.monthidx)] = parseFloat(inp.value || 0);
+        });
+        gridDataRows.push({ personalNo: tr.dataset.personalno, deductions });
+      });
+
       const monthsPayload = [...currentSelectedMonths];
       while (monthsPayload.length < 4) monthsPayload.push('');
+
       startProgressBar(gridDataRows.length);
       try {
         const res = await gasPost('processAllBills', { selectedMonths: monthsPayload, gridDeductionData: gridDataRows });
-        completeProgressBar(res); document.getElementById('gridSection').classList.add('hidden'); liveHistoryCache = {}; loadLiveHistory();
-      } catch (err) { failProgressBar(err.message); }
-      finally { btn.disabled = false; btn.innerHTML = '🚀 EXECUTE PIPELINE — Process Bills &amp; Dispatch Emails'; }
+        completeProgressBar(res);
+        document.getElementById('gridSection').classList.add('hidden');
+        liveHistoryCache = {};
+        loadLiveHistory();
+      } catch (err) {
+        failProgressBar(err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '🚀 EXECUTE PIPELINE — Process Bills &amp; Dispatch Emails';
+      }
     }
   </script>
 </body>
 </html>
-
-
