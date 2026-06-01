@@ -33,7 +33,6 @@
       --c-text-dim:  #94a3b8;
       --c-text-faint:#475569;
       --radius:      10px;
-      --shadow:      0 4px 24px rgba(0,0,0,0.5);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,7 +45,6 @@
       font-size: 13px;
       line-height: 1.5;
       min-height: 100vh;
-      padding: 0;
       background-image:
         linear-gradient(rgba(249,115,22,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(249,115,22,0.03) 1px, transparent 1px);
@@ -126,10 +124,9 @@
       letter-spacing: 0.3px; margin: 5px 3px;
     }
     .tab-ext-budget { background: var(--c-blue-g); border-color: rgba(56,189,248,0.35); color: var(--c-blue); }
-    .tab-ext-budget:hover { background: rgba(56,189,248,0.2); border-color: var(--c-blue); box-shadow: 0 0 12px rgba(56,189,248,0.25); transform: translateY(-1px); }
+    .tab-ext-budget:hover { background: rgba(56,189,248,0.2); border-color: var(--c-blue); transform: translateY(-1px); }
     .tab-ext-perf { background: var(--c-purple-g); border-color: rgba(167,139,250,0.35); color: var(--c-purple); }
-    .tab-ext-perf:hover { background: rgba(167,139,250,0.2); border-color: var(--c-purple); box-shadow: 0 0 12px rgba(167,139,250,0.25); transform: translateY(-1px); }
-    .tab-ext .ext-arrow { font-size: 10px; opacity: 0.7; }
+    .tab-ext-perf:hover { background: rgba(167,139,250,0.2); border-color: var(--c-purple); transform: translateY(-1px); }
     .tabs-spacer { flex: 1; }
 
     /* ---- MAIN ---- */
@@ -160,7 +157,6 @@
       align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
     }
     .card-title { display: flex; align-items: center; gap: 8px; color: var(--c-orange); }
-    .card-title .icon { font-size: 16px; }
 
     /* ---- FORM ELEMENTS ---- */
     label {
@@ -185,51 +181,18 @@
       background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
     }
     select.inp option { background: #161b28; }
-    select.inp:disabled { opacity: 0.5; }
 
-    /* ---- LOCKED FIELD (Dy Office auto-generated) ---- */
+    /* ---- LOCKED FIELD ---- */
     .locked-field-wrap { position: relative; }
     .locked-field-wrap .inp {
       background: linear-gradient(135deg, rgba(249,115,22,0.06), rgba(249,115,22,0.02));
-      border-color: rgba(249,115,22,0.3);
-      color: var(--c-orange);
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700; font-size: 13px;
+      border-color: rgba(249,115,22,0.3); color: var(--c-orange);
+      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px;
       padding-right: 32px;
     }
-    .locked-icon {
-      position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-      font-size: 12px; opacity: 0.6; pointer-events: none;
-    }
+    .locked-icon { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 12px; opacity: 0.6; pointer-events: none; }
 
-    /* ---- WING SELECTOR ---- */
-    .wing-selector { display: flex; gap: 8px; margin-bottom: 0; }
-    .wing-btn {
-      flex: 1; padding: 10px 8px; border-radius: 8px; border: 2px solid var(--c-border);
-      background: var(--c-bg); color: var(--c-text-dim);
-      font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700;
-      cursor: pointer; transition: all 0.2s; text-align: center; letter-spacing: 0.5px;
-    }
-    .wing-btn:hover { border-color: var(--c-orange); color: var(--c-text); }
-    .wing-btn.active-m {
-      border-color: var(--c-blue); background: var(--c-blue-g);
-      color: var(--c-blue);
-      box-shadow: 0 0 12px rgba(56,189,248,0.25);
-    }
-    .wing-btn.active-w {
-      border-color: var(--c-purple); background: var(--c-purple-g);
-      color: var(--c-purple);
-      box-shadow: 0 0 12px rgba(167,139,250,0.25);
-    }
-    .wing-pill {
-      font-size: 9px; padding: 2px 6px; border-radius: 10px;
-      font-family: 'Exo 2', sans-serif; font-weight: 700;
-      display: inline-block; margin-top: 3px;
-    }
-    .wing-pill-m { background: var(--c-blue-g); color: var(--c-blue); border: 1px solid rgba(56,189,248,0.3); }
-    .wing-pill-w { background: var(--c-purple-g); color: var(--c-purple); border: 1px solid rgba(167,139,250,0.3); }
-
-    /* ---- CASCADE SECTION (Wing → Tehsil → Markaz) ---- */
+    /* ---- CASCADE SECTION ---- */
     .cascade-section {
       background: var(--c-surface2); border: 1px solid var(--c-border);
       border-radius: 10px; padding: 14px; margin-bottom: 12px;
@@ -240,21 +203,29 @@
       margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
     }
     .cascade-section-title::before { content: ''; display: inline-block; width: 3px; height: 12px; background: var(--c-orange); border-radius: 2px; }
-    .cascade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media (min-width: 600px) { .cascade-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
-    /* ---- MARKAZ COUNT BADGE ---- */
-    .markaz-count {
-      font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 10px;
-      background: var(--c-orange-g); color: var(--c-orange);
-      border: 1px solid rgba(249,115,22,0.3); margin-left: 6px;
+    /* ---- WING SELECTOR ---- */
+    .wing-selector { display: flex; gap: 8px; }
+    .wing-btn {
+      flex: 1; padding: 10px 8px; border-radius: 8px; border: 2px solid var(--c-border);
+      background: var(--c-bg); color: var(--c-text-dim);
+      font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; text-align: center; letter-spacing: 0.5px;
     }
+    .wing-btn:hover { border-color: var(--c-orange); color: var(--c-text); }
+    .wing-btn.active-m { border-color: var(--c-blue); background: var(--c-blue-g); color: var(--c-blue); box-shadow: 0 0 12px rgba(56,189,248,0.25); }
+    .wing-btn.active-w { border-color: var(--c-purple); background: var(--c-purple-g); color: var(--c-purple); box-shadow: 0 0 12px rgba(167,139,250,0.25); }
+    .wing-pill { font-size: 9px; padding: 2px 6px; border-radius: 10px; font-family: 'Exo 2', sans-serif; font-weight: 700; display: inline-block; margin-top: 3px; }
+    .wing-pill-m { background: var(--c-blue-g); color: var(--c-blue); border: 1px solid rgba(56,189,248,0.3); }
+    .wing-pill-w { background: var(--c-purple-g); color: var(--c-purple); border: 1px solid rgba(167,139,250,0.3); }
+
+    /* ---- MARKAZ COUNT ---- */
+    .markaz-count { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 10px; background: var(--c-orange-g); color: var(--c-orange); border: 1px solid rgba(249,115,22,0.3); margin-left: 6px; }
 
     /* ---- FORM GRID ---- */
     .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     @media (min-width: 600px)  { .form-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (min-width: 900px)  { .form-grid { grid-template-columns: repeat(4, 1fr); } }
-    .form-actions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
     .form-section-label {
       grid-column: 1 / -1;
       font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 700;
@@ -263,6 +234,20 @@
       display: flex; align-items: center; gap: 8px;
     }
     .form-section-label span { color: var(--c-orange); }
+    .form-actions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+
+    /* ---- EDIT MODE BANNER ---- */
+    #editModeBanner {
+      display: none; background: linear-gradient(135deg, rgba(56,189,248,0.1), rgba(56,189,248,0.04));
+      border: 1px solid rgba(56,189,248,0.35); border-radius: 10px;
+      padding: 12px 16px; margin-bottom: 14px;
+      align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+    }
+    #editModeBanner.visible { display: flex; animation: fadeSlide 0.25s ease; }
+    .edit-banner-left { display: flex; align-items: center; gap: 10px; }
+    .edit-banner-pno { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; color: var(--c-blue); }
+    .edit-banner-name { font-weight: 600; color: var(--c-text); }
+    .edit-banner-btns { display: flex; gap: 8px; flex-wrap: wrap; }
 
     /* ---- BUTTONS ---- */
     .btn {
@@ -279,12 +264,33 @@
     .btn-green:hover:not(:disabled) { box-shadow: 0 5px 20px rgba(34,197,94,0.45); transform: translateY(-1px); }
     .btn-blue   { background: linear-gradient(135deg, var(--c-blue), var(--c-blue-d)); color: #fff; box-shadow: 0 3px 12px rgba(56,189,248,0.3); }
     .btn-blue:hover:not(:disabled) { box-shadow: 0 5px 20px rgba(56,189,248,0.45); transform: translateY(-1px); }
+    .btn-red    { background: linear-gradient(135deg, var(--c-red), #be123c); color: #fff; box-shadow: 0 3px 12px rgba(244,63,94,0.3); }
+    .btn-red:hover:not(:disabled) { box-shadow: 0 5px 20px rgba(244,63,94,0.45); transform: translateY(-1px); }
     .btn-ghost  { background: var(--c-surface2); border: 1px solid var(--c-border); color: var(--c-text-dim); }
     .btn-ghost:hover { color: var(--c-text); border-color: var(--c-text-faint); }
     .btn-yellow { background: linear-gradient(135deg, var(--c-yellow), #d97706); color: #111; box-shadow: 0 3px 12px rgba(251,191,36,0.3); }
     .btn-yellow:hover:not(:disabled) { box-shadow: 0 5px 20px rgba(251,191,36,0.5); transform: translateY(-1px); }
     .btn-sm { padding: 6px 12px; font-size: 11px; }
     .btn-full { width: 100%; }
+
+    /* ---- CONFIRM MODAL ---- */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.visible { display: flex; animation: fadeSlide 0.2s ease; }
+    .modal-box {
+      background: var(--c-surface); border: 1px solid var(--c-border);
+      border-radius: 14px; padding: 28px 24px; max-width: 400px; width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .modal-icon { font-size: 36px; text-align: center; margin-bottom: 12px; }
+    .modal-title { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; color: var(--c-red); text-align: center; margin-bottom: 8px; }
+    .modal-body  { color: var(--c-text-dim); font-size: 13px; text-align: center; margin-bottom: 20px; line-height: 1.6; }
+    .modal-target { color: var(--c-text); font-weight: 700; }
+    .modal-actions { display: flex; gap: 10px; }
+    .modal-actions .btn { flex: 1; }
 
     /* ---- TABLE ---- */
     .tbl-wrap { overflow-x: auto; overflow-y: auto; max-height: 320px; border-radius: 8px; border: 1px solid var(--c-border); }
@@ -310,15 +316,16 @@
     .badge-teal   { background: var(--c-teal-g);  color: var(--c-teal);  border: 1px solid rgba(45,212,191,0.3); }
     .badge-purple { background: var(--c-purple-g);color: var(--c-purple);border: 1px solid rgba(167,139,250,0.3); }
 
-    /* ---- SEARCH ROW ---- */
-    .search-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
-    .search-row .inp { max-width: 260px; }
+    /* ---- STAT CHIPS ---- */
+    .stat-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .stat-chip { flex: 1; min-width: 80px; background: var(--c-surface2); border: 1px solid var(--c-border); border-radius: 8px; padding: 10px 12px; text-align: center; }
+    .stat-chip .val { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; color: var(--c-orange); }
+    .stat-chip .lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--c-text-faint); letter-spacing: 0.3px; }
 
     /* ---- BILLING LAYOUT ---- */
     .billing-top { display: grid; grid-template-columns: 1fr; gap: 14px; }
     @media (min-width: 760px) { .billing-top { grid-template-columns: 1fr 1fr; } }
 
-    /* ---- BILLING CASCADES ---- */
     .cascade-row {
       display: flex; gap: 8px; align-items: center;
       background: var(--c-surface2); border: 1px solid var(--c-border);
@@ -329,7 +336,6 @@
     .cascade-row select.inp { flex: 1; }
     .cascade-row .year-sel { min-width: 80px; max-width: 90px; }
 
-    /* ---- MONTHS INPUT ---- */
     .months-count-wrap {
       background: linear-gradient(135deg, var(--c-orange-g), transparent);
       border: 1px solid rgba(249,115,22,0.3);
@@ -349,11 +355,11 @@
       font-size: 13px; font-weight: 700; text-align: center; width: 90px;
       padding: 6px 4px; outline: none; transition: all 0.2s;
     }
-    .ded-input:focus { border-color: var(--c-red); box-shadow: 0 0 0 3px rgba(244,63,94,0.15); background: rgba(244,63,94,0.12); }
+    .ded-input:focus { border-color: var(--c-red); box-shadow: 0 0 0 3px rgba(244,63,94,0.15); }
     .ded-input.has-prior { border-color: var(--c-yellow) !important; background: rgba(251,191,36,0.1) !important; }
     .gross-cell { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; color: var(--c-blue); background: rgba(56,189,248,0.05); text-align: center; }
 
-    /* ---- PROGRESS BAR ---- */
+    /* ---- PROGRESS ---- */
     #progressSection {
       margin-top: 14px; background: var(--c-surface2); border: 1px solid var(--c-border);
       border-radius: 10px; padding: 16px; display: none;
@@ -361,29 +367,22 @@
     #progressSection.visible { display: block; animation: fadeSlide 0.3s ease; }
     .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .progress-label { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; color: var(--c-text-dim); letter-spacing: 0.5px; }
-    .progress-pct { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: var(--c-green); min-width: 52px; text-align: right; transition: color 0.3s; }
-    .progress-track { width: 100%; height: 10px; background: var(--c-border); border-radius: 99px; overflow: hidden; position: relative; }
+    .progress-pct { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: var(--c-green); min-width: 52px; text-align: right; }
+    .progress-track { width: 100%; height: 10px; background: var(--c-border); border-radius: 99px; overflow: hidden; }
     .progress-fill {
       height: 100%; width: 0%; border-radius: 99px;
       background: linear-gradient(90deg, var(--c-green-d), var(--c-green), #86efac);
       box-shadow: 0 0 10px rgba(34,197,94,0.5);
-      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); position: relative;
+      transition: width 0.6s cubic-bezier(0.4,0,0.2,1); position: relative;
     }
-    .progress-fill::after {
-      content: ''; position: absolute; top: 0; left: -60%; width: 60%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      animation: shimmer 1.6s infinite;
-    }
+    .progress-fill::after { content: ''; position: absolute; top: 0; left: -60%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 1.6s infinite; }
     @keyframes shimmer { to { left: 160%; } }
     .progress-steps { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
-    .progress-step {
-      font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px;
-      background: var(--c-border); color: var(--c-text-faint); border: 1px solid transparent; transition: all 0.3s;
-    }
+    .progress-step { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; background: var(--c-border); color: var(--c-text-faint); border: 1px solid transparent; transition: all 0.3s; }
     .progress-step.done { background: var(--c-green-g); color: var(--c-green); border-color: rgba(34,197,94,0.3); }
     .progress-step.active { background: var(--c-orange-g); color: var(--c-orange); border-color: rgba(249,115,22,0.4); animation: pulse-glow 1.2s infinite; }
 
-    /* ---- EXECUTE BUTTON ---- */
+    /* ---- EXECUTE BTN ---- */
     .execute-btn {
       background: linear-gradient(135deg, var(--c-green), var(--c-green-d)); color: #fff;
       border: none; border-radius: 10px; padding: 14px 20px; width: 100%;
@@ -393,26 +392,10 @@
       display: flex; align-items: center; justify-content: center; gap: 8px;
     }
     .execute-btn:hover:not(:disabled) { box-shadow: 0 6px 28px rgba(34,197,94,0.55); transform: translateY(-2px); }
-    .execute-btn:active { transform: scale(0.98); }
     .execute-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
     /* ---- HISTORY TABLE ---- */
     .hist-tbl-wrap { overflow-x: auto; overflow-y: auto; max-height: 260px; border: 1px solid var(--c-border); border-radius: 8px; }
-
-    /* ---- STAT CHIPS ---- */
-    .stat-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
-    .stat-chip { flex: 1; min-width: 80px; background: var(--c-surface2); border: 1px solid var(--c-border); border-radius: 8px; padding: 10px 12px; text-align: center; }
-    .stat-chip .val { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; color: var(--c-orange); }
-    .stat-chip .lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--c-text-faint); letter-spacing: 0.3px; }
-
-    /* ---- SECTION DIVIDER ---- */
-    .sec-div { display: flex; align-items: center; gap: 10px; margin: 18px 0; color: var(--c-text-faint); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-    .sec-div::before, .sec-div::after { content: ''; flex: 1; height: 1px; background: var(--c-border); }
-
-    /* ---- LOADER ---- */
-    .loading-row td { color: var(--c-text-faint); text-align: center; padding: 24px; font-style: italic; }
-    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(249,115,22,0.3); border-top-color: var(--c-orange); border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 6px; }
-    @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ---- CONFIG BANNER ---- */
     #configBanner {
@@ -425,13 +408,26 @@
     #configBanner .inp-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     #configBanner .inp-row input { flex: 1; min-width: 260px; font-size: 11px; }
 
+    /* ---- SECTION DIVIDER ---- */
+    .sec-div { display: flex; align-items: center; gap: 10px; margin: 18px 0; color: var(--c-text-faint); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .sec-div::before, .sec-div::after { content: ''; flex: 1; height: 1px; background: var(--c-border); }
+
+    /* ---- LOADER ---- */
+    .loading-row td { color: var(--c-text-faint); text-align: center; padding: 24px; font-style: italic; }
+    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(249,115,22,0.3); border-top-color: var(--c-orange); border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 6px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---- FORM HIDDEN STATE ---- */
+    #employeeFormCard { display: none; }
+    #employeeFormCard.visible { display: block; animation: fadeSlide 0.25s ease; }
+
     /* ---- MISC ---- */
     .mono { font-family: 'Rajdhani', sans-serif; font-weight: 700; }
     .hidden { display: none !important; }
     .tab-content { animation: fadeSlide 0.25s ease; }
-    #gridSection { animation: fadeSlide 0.3s ease; }
-    .quick-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-    .quick-row select { flex: 1; min-width: 180px; }
+
+    /* ---- ACTION BTNS ROW IN TABLE ---- */
+    .tbl-action-row { display: flex; gap: 5px; align-items: center; }
 
     @media (max-width: 480px) {
       .app-header { padding: 10px 12px; }
@@ -439,12 +435,27 @@
       .main-wrap { padding: 10px 8px; }
       .card { padding: 12px; }
       .ded-input { width: 75px; }
-      .tab-ext span:not(.ext-arrow) { display: none; }
-      .tab-ext { padding: 7px 10px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- DELETE CONFIRM MODAL -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal-box">
+      <div class="modal-icon">🗑️</div>
+      <div class="modal-title">Confirm Permanent Delete</div>
+      <div class="modal-body">
+        You are about to <strong style="color:var(--c-red)">permanently remove</strong> employee:<br>
+        <span class="modal-target" id="deleteModalTarget"></span><br><br>
+        This action <strong>cannot be undone</strong>. The row will be deleted from the sheet.
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" onclick="closeDeleteModal()">✕ Cancel</button>
+        <button class="btn btn-red" id="confirmDeleteBtn" onclick="confirmDelete()">🗑️ Delete Permanently</button>
+      </div>
+    </div>
+  </div>
 
   <header class="app-header">
     <div class="header-brand">
@@ -454,17 +465,21 @@
         <div class="header-sub">Multi-Month Matrix &amp; Deduction Engine</div>
       </div>
     </div>
-    <span class="header-badge" id="liveEmpCount">● LOADING</span>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="btn btn-ghost btn-sm" onclick="showConfigBanner()" title="Configure API URL" style="font-size:11px;">⚙️ API</button>
+      <span class="header-badge" id="liveEmpCount">● LOADING</span>
+    </div>
   </header>
 
   <div class="tabs-wrap">
     <button class="tab-btn active" onclick="switchTab('staff')" id="tab-staff">👥 Staff Registry</button>
     <button class="tab-btn" onclick="switchTab('billing')" id="tab-billing">💳 Billing &amp; Processing</button>
+    <div class="tabs-spacer"></div>
     <a href="https://mwaqas3341-aeo.github.io/Allowance-Budget/" target="_blank" class="tab-ext tab-ext-budget">
-      📊 <span>Prepare Budget</span> <span class="ext-arrow">↗</span>
+      📊 <span>Prepare Budget</span> <span style="font-size:10px;opacity:.7;">↗</span>
     </a>
     <a href="https://mwaqas3341-aeo.github.io/Inspection-Allowance-Performance/" target="_blank" class="tab-ext tab-ext-perf">
-      🏆 <span>Performance</span> <span class="ext-arrow">↗</span>
+      🏆 <span>Performance</span> <span style="font-size:10px;opacity:.7;">↗</span>
     </a>
   </div>
 
@@ -473,7 +488,7 @@
 
     <div id="configBanner">
       <h3>⚠️ Backend URL Not Configured</h3>
-      <p>Paste your Google Apps Script Web App URL below and click Save. This is stored in your browser only.</p>
+      <p>Paste your Google Apps Script Web App URL below and click Save. Stored in your browser only.</p>
       <div class="inp-row">
         <input type="url" id="gasUrlInput" class="inp" placeholder="https://script.google.com/macros/s/AKfycbyQj0kwFp9aCRot3vfsTyzCdfNF2lq3t1rNyHXkmxq1jAtipGvAE7Vve7BOTCTG7iqt/exec">
         <button class="btn btn-orange btn-sm" onclick="saveGasUrl()">💾 Save URL</button>
@@ -492,93 +507,68 @@
         <div class="stat-chip"><div class="val" style="color:var(--c-purple)" id="statWEE">—</div><div class="lbl">W-EE Wing</div></div>
       </div>
 
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title"><span class="icon">📝</span> Add / Edit Staff Record</div>
-          <button class="btn btn-ghost btn-sm" onclick="showConfigBanner()" title="Configure GAS URL">⚙️ API Settings</button>
+      <!-- Top action bar above table -->
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:10px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="btn btn-orange" onclick="openAddForm()">➕ Add Employee</button>
         </div>
+        <input type="text" class="inp" id="search" oninput="filterTable()" placeholder="🔍 Search name, P.No, Tehsil, Wing, Markaz…" style="max-width:280px;">
+      </div>
 
-        <div class="quick-row">
-          <select class="inp" id="quickSelect" onchange="loadToForm(this.value)">
-            <option value="">⚡ Quick Load Employee…</option>
-          </select>
-          <button class="btn btn-ghost btn-sm" onclick="resetForm()">✕ Clear</button>
+      <!-- Employee table -->
+      <div class="card" style="padding:0; overflow:hidden; margin-bottom:14px;">
+        <div class="tbl-wrap" style="border:none; border-radius:0; max-height:320px;">
+          <table>
+            <thead>
+              <tr>
+                <th>P.No</th>
+                <th>Name</th>
+                <th>Wing</th>
+                <th>Tehsil</th>
+                <th>Markaz</th>
+                <th>Designation</th>
+                <th>Scale</th>
+                <th>Budget</th>
+                <th>Status</th>
+                <th style="text-align:center;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="staffTableBody">
+              <tr class="loading-row"><td colspan="10"><span class="spinner"></span> Loading staff…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Edit Mode Banner (shown when editing) -->
+      <div id="editModeBanner">
+        <div class="edit-banner-left">
+          <div>
+            <div style="font-size:10px;color:var(--c-text-faint);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;">Editing Employee</div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="edit-banner-pno" id="editBannerPno"></span>
+              <span class="edit-banner-name" id="editBannerName"></span>
+            </div>
+          </div>
+        </div>
+        <div class="edit-banner-btns">
+          <button class="btn btn-red btn-sm" id="bannerDeleteBtn">🗑️ Delete</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetForm()">✕ Cancel Edit</button>
+        </div>
+      </div>
+
+      <!-- Employee Form Card (hidden until Add/Edit) -->
+      <div id="employeeFormCard" class="card">
+        <div class="card-header">
+          <div class="card-title"><span>📝</span> <span id="formCardTitle">Add New Employee</span></div>
         </div>
 
         <form id="staffForm" onsubmit="handleStaffSubmit(event)">
-          <div class="form-grid">
 
-            <!-- ── SECTION: Identity ── -->
-            <div class="form-section-label"><span>🪪</span> Identity &amp; Contact</div>
-
-            <div>
-              <label>Personal No ✱ <span style="color:var(--c-orange);font-size:9px;">(8 digits)</span></label>
-              <input type="text" id="personalNo" class="inp" required placeholder="e.g. 12345678" maxlength="8">
-            </div>
-            <div>
-              <label>Full Name ✱</label>
-              <input type="text" id="name" class="inp" required placeholder="Employee full name">
-            </div>
-            <div>
-              <label>Cell No</label>
-              <input type="text" id="cell" class="inp" placeholder="03xx-xxxxxxx">
-            </div>
-            <div>
-              <label>CNIC</label>
-              <input type="text" id="cnic" class="inp" placeholder="xxxxx-xxxxxxx-x">
-            </div>
-            <div>
-              <label>Gmail ✱</label>
-              <input type="email" id="gmail" class="inp" required placeholder="email@gmail.com">
-            </div>
-            <div>
-              <label>Status</label>
-              <select id="status" class="inp">
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
-            </div>
-
-            <!-- ── SECTION: Post Info ── -->
-            <div class="form-section-label"><span>🏛️</span> Post &amp; Service Details</div>
-
-            <div>
-              <label>BPS Scale</label>
-              <input type="text" id="scale" class="inp" placeholder="e.g. 17">
-            </div>
-            <div>
-              <label>Designation</label>
-              <input type="text" id="designation" class="inp" placeholder="Designation">
-            </div>
-            <div>
-              <label>Role</label>
-              <input type="text" id="role" class="inp" placeholder="e.g. AEO">
-            </div>
-            <div>
-              <label>Page No</label>
-              <input type="text" id="page" class="inp">
-            </div>
-            <div>
-              <label>DDEO Code</label>
-              <input type="text" id="ddeoCode" class="inp">
-            </div>
-            <div>
-              <label>He/She Receives Budget</label>
-              <select id="budget" class="inp">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-
-            <!-- ── SECTION: Wing → Tehsil → Markaz cascade ── -->
-            <div class="form-section-label" style="grid-column:1/-1;"><span>🗺️</span> Wing, Tehsil &amp; Markaz</div>
-
-          </div>
-
-          <!-- Wing / Tehsil / Markaz full-width cascade block -->
+          <!-- ═══ STEP 1: WING ═══ -->
           <div class="cascade-section">
             <div class="cascade-section-title">Step 1 — Select Wing</div>
-            <div class="wing-selector" id="wingSelector">
+            <div class="wing-selector">
               <button type="button" class="wing-btn" id="wingBtnM" onclick="selectWing('M-EE')">
                 🔵 M-EE
                 <div><span class="wing-pill wing-pill-m">Male Wing</span></div>
@@ -590,6 +580,7 @@
             </div>
           </div>
 
+          <!-- ═══ STEP 2: TEHSIL ═══ -->
           <div class="cascade-section" id="tehsilBlock" style="display:none;">
             <div class="cascade-section-title">Step 2 — Select Tehsil</div>
             <div>
@@ -600,6 +591,7 @@
             </div>
           </div>
 
+          <!-- ═══ STEP 3: MARKAZ ═══ -->
           <div class="cascade-section" id="markazBlock" style="display:none;">
             <div class="cascade-section-title">
               Step 3 — Select Markaz
@@ -613,11 +605,11 @@
             </div>
           </div>
 
-          <!-- Dy Office — locked, auto-generated -->
+          <!-- ═══ OFFICE GENERATED (locked) ═══ -->
           <div class="cascade-section" id="dyOfficeBlock" style="display:none;">
             <div class="cascade-section-title">Auto-Generated Office</div>
             <div>
-              <label>Dy Office <span style="color:var(--c-orange);">(auto-locked)</span></label>
+              <label>Office Generated <span style="color:var(--c-orange);">(auto-locked)</span></label>
               <div class="locked-field-wrap">
                 <input type="text" id="dyOffice" class="inp" readonly placeholder="Select Wing + Tehsil above…">
                 <span class="locked-icon">🔒</span>
@@ -625,46 +617,104 @@
             </div>
           </div>
 
-          <!-- Hidden inputs for wing/tehsil values -->
-          <input type="hidden" id="wingValue">
-          <input type="hidden" id="tehsilValue">
+          <!-- ═══ EMPLOYEE DATA FIELDS (visible after cascade) ═══ -->
+          <div id="employeeFields" style="display:none; margin-top:4px; animation: fadeSlide 0.3s ease;">
 
-          <div class="form-grid" style="margin-top:12px;">
-            <div class="form-actions">
-              <button type="submit" class="btn btn-orange">💾 Save to Database</button>
-              <button type="button" class="btn btn-ghost" onclick="resetForm()">✕ Clear Form</button>
-            </div>
-          </div>
+            <!-- Row 1: Personal No + Name -->
+            <div class="form-grid">
+              <div class="form-section-label"><span>🆔</span> Employee Data</div>
+
+              <div>
+                <label>Personal No ✱ <span style="color:var(--c-orange);font-size:9px;">(8 digits)</span></label>
+                <input type="text" id="personalNo" class="inp" required placeholder="e.g. 12345678"
+                       maxlength="8" pattern="\d{8}" title="Must be exactly 8 digits"
+                       oninput="validatePersonalNo(this)">
+                <div id="pnoError" style="font-size:10px;color:var(--c-red);margin-top:3px;display:none;">⚠️ Must be exactly 8 digits</div>
+              </div>
+
+              <div>
+                <label>Full Name ✱ — Col C</label>
+                <input type="text" id="name" class="inp" required placeholder="Employee full name">
+              </div>
+
+              <div>
+                <label>Cell No — Col E</label>
+                <input type="text" id="cell" class="inp" placeholder="03xx-xxxxxxx">
+              </div>
+
+              <div>
+                <label>CNIC — Col H</label>
+                <input type="text" id="cnic" class="inp" placeholder="xxxxx-xxxxxxx-x">
+              </div>
+
+              <div>
+                <label>Gmail ✱ — Col L</label>
+                <input type="email" id="gmail" class="inp" required placeholder="email@gmail.com">
+              </div>
+
+              <div>
+                <label>Status — Col K</label>
+                <select id="status" class="inp">
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+
+              <!-- Post & Service -->
+              <div class="form-section-label"><span>🏛️</span> Post &amp; Service Details</div>
+
+              <div>
+                <label>BPS Scale — Col I</label>
+                <input type="text" id="scale" class="inp" placeholder="e.g. 17">
+              </div>
+
+              <div>
+                <label>Designation — Col J</label>
+                <input type="text" id="designation" class="inp" placeholder="Designation">
+              </div>
+
+              <div>
+                <label>Role — Col N</label>
+                <input type="text" id="role" class="inp" placeholder="e.g. AEO">
+              </div>
+
+              <div>
+                <label>Page No — Col F</label>
+                <input type="text" id="page" class="inp">
+              </div>
+
+              <div>
+                <label>DDEO Code — Col G</label>
+                <input type="text" id="ddeoCode" class="inp">
+              </div>
+
+              <div>
+                <label>Receives Budget — Col M</label>
+                <select id="budget" class="inp">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <!-- Links (read-only display) -->
+              <div>
+                <label>Links — Col O <span style="color:var(--c-text-faint);font-size:9px;">(auto-filled by pipeline)</span></label>
+                <input type="text" id="linksDisplay" class="inp" readonly placeholder="Generated after bill processing…">
+              </div>
+
+              <!-- Form Actions -->
+              <div class="form-actions">
+                <button type="submit" id="saveBtn" class="btn btn-orange">💾 Save to Database</button>
+                <button type="button" class="btn btn-ghost" onclick="resetForm()">✕ Clear Form</button>
+              </div>
+
+            </div><!-- /form-grid -->
+          </div><!-- /employeeFields -->
+
         </form>
-      </div>
+      </div><!-- /employeeFormCard -->
 
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div style="padding:12px 16px; border-bottom:1px solid var(--c-border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-          <span style="font-family:'Rajdhani',sans-serif; font-weight:700; color:var(--c-text);">🗂️ Employee Database</span>
-          <input type="text" class="inp" id="search" oninput="filterTable()" placeholder="🔍 Search name, P.No, Tehsil, Wing…" style="max-width:260px;">
-        </div>
-        <div class="tbl-wrap" style="border:none; border-radius:0; max-height:300px;">
-          <table>
-            <thead>
-              <tr>
-                <th>P.No</th>
-                <th>Name</th>
-                <th>Wing</th>
-                <th>Tehsil</th>
-                <th>Markaz</th>
-                <th>Designation</th>
-                <th>Budget</th>
-                <th>Status</th>
-                <th style="text-align:center;">Action</th>
-              </tr>
-            </thead>
-            <tbody id="staffTableBody">
-              <tr class="loading-row"><td colspan="9"><span class="spinner"></span> Loading staff…</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    </div><!-- /sec-staff -->
 
     <!-- ===================== BILLING TAB ===================== -->
     <div id="sec-billing" class="tab-content hidden">
@@ -672,13 +722,13 @@
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title"><span class="icon">📅</span> Step 1 — Month Configuration</div>
+            <div class="card-title"><span>📅</span> Step 1 — Month Configuration</div>
           </div>
           <div class="months-count-wrap">
             <label style="flex:1;">No. of Months<br><span style="font-size:9px;color:var(--c-text-faint);">Select 1 to 4</span></label>
             <input type="number" class="inp" id="numMonthsInput" min="1" max="4" value="1"
                    oninput="buildMonthCascades(this.value)"
-                   style="width:70px; text-align:center; font-size:18px; font-weight:800; font-family:'Rajdhani',sans-serif; color:var(--c-orange);">
+                   style="width:70px;text-align:center;font-size:18px;font-weight:800;font-family:'Rajdhani',sans-serif;color:var(--c-orange);">
           </div>
           <div id="cascadesContainer"></div>
           <button class="btn btn-blue btn-full" onclick="generateDeductionTableGrid()" style="margin-top:6px;">
@@ -688,9 +738,9 @@
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title"><span class="icon">📜</span> Deduction History</div>
-            <div style="display:flex; align-items:center; gap:6px;">
-              <label style="margin:0; font-size:10px;">Year</label>
+            <div class="card-title"><span>📜</span> Deduction History</div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <label style="margin:0;font-size:10px;">Year</label>
               <select id="historyYearFilter" class="inp" onchange="loadLiveHistory()" style="width:80px;"></select>
               <button class="btn btn-ghost btn-sm" onclick="loadLiveHistory()">↻</button>
             </div>
@@ -713,9 +763,9 @@
 
       <div id="gridSection" class="hidden">
         <div class="sec-div">📊 Step 2 — Deduction Input Matrix</div>
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="padding:12px 16px; border-bottom:1px solid var(--c-border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-            <span style="font-family:'Rajdhani',sans-serif; font-weight:700;">Active Staff Matrix</span>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="padding:12px 16px;border-bottom:1px solid var(--c-border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <span style="font-family:'Rajdhani',sans-serif;font-weight:700;">Active Staff Matrix</span>
             <span class="badge badge-green" id="matrixActiveCount">0 Active</span>
           </div>
           <div class="matrix-wrap">
@@ -725,11 +775,9 @@
             </table>
           </div>
         </div>
-
         <button class="execute-btn" id="runPipelineBtn" onclick="executeProcessingPipeline()">
           🚀 EXECUTE PIPELINE — Process Bills &amp; Dispatch Emails
         </button>
-
         <div id="progressSection">
           <div class="progress-header">
             <span class="progress-label" id="progressLabel">Initialising pipeline…</span>
@@ -742,7 +790,8 @@
         </div>
       </div>
     </div>
-  </div>
+
+  </div><!-- /main-wrap -->
 
   <script>
     // ============================================================
@@ -759,15 +808,14 @@
     let employeeCache         = [];
     let currentSelectedMonths = [];
     let liveHistoryCache      = {};
-
-    // Lookup data loaded from backend (cols S, T, U of Raw Sheet)
-    let lookupTehsils   = [];   // string[]
-    let lookupMarkazList= [];   // [{markaz, wing}]
-
-    // Current cascade selections on the form
-    let selectedWing   = '';
-    let selectedTehsil = '';
-    let selectedMarkaz = '';
+    let lookupTehsils         = [];
+    let lookupMarkazList      = [];
+    let selectedWing          = '';
+    let selectedTehsil        = '';
+    let isEditMode            = false;
+    let editingPersonalNo     = '';
+    let pendingDeletePno      = '';
+    let pendingDeleteName     = '';
 
     // ============================================================
     // GAS COMMUNICATION
@@ -845,7 +893,7 @@
     }
 
     // ============================================================
-    // LOOKUP DATA (Tehsil, Markaz, Wing from cols S, T, U)
+    // LOOKUP DATA
     // ============================================================
     async function fetchLookupData() {
       try {
@@ -858,73 +906,64 @@
     }
 
     // ============================================================
-    // WING → TEHSIL → MARKAZ CASCADE LOGIC
+    // PERSONAL NO VALIDATION
     // ============================================================
+    function validatePersonalNo(inp) {
+      const val = inp.value.replace(/\D/g,'');
+      inp.value = val;
+      const err = document.getElementById('pnoError');
+      if (val.length > 0 && val.length !== 8) { err.style.display = 'block'; }
+      else { err.style.display = 'none'; }
+    }
+
+    // ============================================================
+    // WING → TEHSIL → MARKAZ CASCADE
+    // ============================================================
+    function markazBelongsToTehsil(markazName, tehsilName) {
+      return markazName.toLowerCase().includes(tehsilName.toLowerCase());
+    }
+
     function selectWing(wing) {
       selectedWing   = wing;
       selectedTehsil = '';
-      selectedMarkaz = '';
 
-      // Update wing buttons
       document.getElementById('wingBtnM').className = 'wing-btn' + (wing === 'M-EE' ? ' active-m' : '');
       document.getElementById('wingBtnW').className = 'wing-btn' + (wing === 'W-EE' ? ' active-w' : '');
-      document.getElementById('wingValue').value = wing;
 
-      // Show Tehsil block and populate
       const tehsilBlock = document.getElementById('tehsilBlock');
       tehsilBlock.style.display = 'block';
 
       const tehsilSel = document.getElementById('tehsilSelect');
       tehsilSel.innerHTML = '<option value="">— Select Tehsil —</option>';
 
-      // Filter tehsils: only those that have at least one Markaz matching this wing
-      const wingKeyword = wing === 'M-EE' ? 'Male' : 'Female';
       const relevantTehsils = lookupTehsils.filter(t =>
         lookupMarkazList.some(m => m.wing === wing && markazBelongsToTehsil(m.markaz, t))
       );
-
       relevantTehsils.forEach(t => {
         const opt = document.createElement('option');
         opt.value = t; opt.textContent = t;
         tehsilSel.appendChild(opt);
       });
 
-      // Hide downstream
-      document.getElementById('markazBlock').style.display  = 'none';
+      document.getElementById('markazBlock').style.display   = 'none';
       document.getElementById('dyOfficeBlock').style.display = 'none';
-      document.getElementById('tehsilValue').value = '';
-      document.getElementById('dyOffice').value    = '';
-
-      // Clear markaz field in form
-      selectedMarkaz = '';
+      document.getElementById('employeeFields').style.display = 'none';
+      document.getElementById('dyOffice').value = '';
       document.getElementById('markazSelect').innerHTML = '<option value="">— Select Markaz —</option>';
-    }
-
-    /**
-     * Determines if a markaz name belongs to a tehsil.
-     * Strategy: markaz name contains the tehsil name (case-insensitive).
-     */
-    function markazBelongsToTehsil(markazName, tehsilName) {
-      return markazName.toLowerCase().includes(tehsilName.toLowerCase());
     }
 
     function onTehsilChange() {
       selectedTehsil = document.getElementById('tehsilSelect').value;
-      selectedMarkaz = '';
-      document.getElementById('tehsilValue').value = selectedTehsil;
-
       if (!selectedTehsil) {
         document.getElementById('markazBlock').style.display   = 'none';
         document.getElementById('dyOfficeBlock').style.display = 'none';
+        document.getElementById('employeeFields').style.display = 'none';
         document.getElementById('dyOffice').value = '';
         return;
       }
-
-      // Filter markazList by wing AND tehsil
       const filtered = lookupMarkazList.filter(m =>
         m.wing === selectedWing && markazBelongsToTehsil(m.markaz, selectedTehsil)
       );
-
       const markazSel = document.getElementById('markazSelect');
       markazSel.innerHTML = '<option value="">— Select Markaz —</option>';
       filtered.forEach(m => {
@@ -932,21 +971,21 @@
         opt.value = m.markaz; opt.textContent = m.markaz;
         markazSel.appendChild(opt);
       });
-
       document.getElementById('markazCount').textContent = filtered.length + ' available';
       document.getElementById('markazBlock').style.display   = 'block';
       document.getElementById('dyOfficeBlock').style.display = 'none';
+      document.getElementById('employeeFields').style.display = 'none';
       document.getElementById('dyOffice').value = '';
     }
 
     function onMarkazChange() {
-      selectedMarkaz = document.getElementById('markazSelect').value;
-      if (!selectedMarkaz) return;
-
-      // Auto-generate Dy Office
+      const markaz = document.getElementById('markazSelect').value;
+      if (!markaz) return;
       const dyVal = 'DDEO (' + selectedWing + ') ' + selectedTehsil;
       document.getElementById('dyOffice').value = dyVal;
       document.getElementById('dyOfficeBlock').style.display = 'block';
+      // Reveal employee data fields
+      document.getElementById('employeeFields').style.display = 'block';
     }
 
     // ============================================================
@@ -966,32 +1005,31 @@
       const t = document.getElementById('toast');
       t.textContent = msg; t.className = 'toast ' + (isError ? 'error' : 'success');
       t.style.display = 'block'; clearTimeout(t._timer);
-      t._timer = setTimeout(() => { t.style.display = 'none'; }, 5000);
+      t._timer = setTimeout(() => { t.style.display = 'none'; }, 5500);
     }
 
     // ============================================================
-    // EMPLOYEE DATA
+    // EMPLOYEE DATA — FETCH & RENDER
     // ============================================================
     async function fetchEmployeeData() {
       try {
         const data = await gasCall('getEmployees');
         employeeCache = Array.isArray(data) ? data : [];
         renderStaffTable(employeeCache);
-        populateQuickSelect(employeeCache);
         updateStatChips(employeeCache);
         const active = employeeCache.filter(e => e.status === 'Active').length;
         document.getElementById('liveEmpCount').textContent = `● ${active} ACTIVE`;
       } catch (err) {
         document.getElementById('liveEmpCount').textContent = '● ERROR';
         msgToast('❌ Failed to load staff: ' + err.message, true);
-        document.getElementById('staffTableBody').innerHTML = '<tr class="loading-row"><td colspan="9">❌ Could not load staff. Check API settings.</td></tr>';
+        document.getElementById('staffTableBody').innerHTML = '<tr class="loading-row"><td colspan="10">❌ Could not load staff. Check API settings.</td></tr>';
       }
     }
 
     function updateStatChips(data) {
-      const active   = data.filter(e => e.status === 'Active').length;
-      const mee      = data.filter(e => e.wing === 'M-EE').length;
-      const wee      = data.filter(e => e.wing === 'W-EE').length;
+      const active = data.filter(e => e.status === 'Active').length;
+      const mee    = data.filter(e => e.wing === 'M-EE').length;
+      const wee    = data.filter(e => e.wing === 'W-EE').length;
       document.getElementById('statTotal').textContent    = data.length;
       document.getElementById('statActive').textContent   = active;
       document.getElementById('statInactive').textContent = data.length - active;
@@ -1002,71 +1040,79 @@
     function renderStaffTable(data) {
       const body = document.getElementById('staffTableBody');
       if (!data || data.length === 0) {
-        body.innerHTML = '<tr class="loading-row"><td colspan="9">No records found.</td></tr>';
+        body.innerHTML = '<tr class="loading-row"><td colspan="10">No records found.</td></tr>';
         return;
       }
       body.innerHTML = data.map(e => `
         <tr>
           <td class="mono" style="color:var(--c-orange);">${e.personalNo}</td>
           <td style="font-weight:600;">${e.name}</td>
-          <td>
-            ${e.wing === 'M-EE'
-              ? '<span class="badge badge-blue">M-EE</span>'
-              : e.wing === 'W-EE'
-                ? '<span class="badge badge-purple">W-EE</span>'
-                : '<span class="badge" style="opacity:.4;">—</span>'}
-          </td>
+          <td>${e.wing === 'M-EE' ? '<span class="badge badge-blue">M-EE</span>' : e.wing === 'W-EE' ? '<span class="badge badge-purple">W-EE</span>' : '<span class="badge" style="opacity:.4;">—</span>'}</td>
           <td style="color:var(--c-text-dim);">${e.tehsil || '—'}</td>
-          <td style="color:var(--c-text-dim); max-width:140px; overflow:hidden; text-overflow:ellipsis;">${e.markaz || '—'}</td>
+          <td style="color:var(--c-text-dim);max-width:140px;overflow:hidden;text-overflow:ellipsis;">${e.markaz || '—'}</td>
           <td style="color:var(--c-text-dim);">${e.designation || '—'}</td>
-          <td>
-            ${e.budget === 'Yes'
-              ? '<span class="badge badge-teal">Yes</span>'
-              : '<span class="badge badge-red">No</span>'}
-          </td>
+          <td style="color:var(--c-text-dim);text-align:center;">${e.scale ? 'BPS-'+e.scale : '—'}</td>
+          <td>${e.budget === 'Yes' ? '<span class="badge badge-teal">Yes</span>' : '<span class="badge badge-red">No</span>'}</td>
           <td><span class="badge ${e.status === 'Active' ? 'badge-green' : 'badge-red'}">${e.status}</span></td>
-          <td style="text-align:center;">
-            <button class="btn btn-ghost btn-sm" onclick="loadToForm('${e.personalNo}')">✏️ Edit</button>
+          <td>
+            <div class="tbl-action-row">
+              <button class="btn btn-blue btn-sm" onclick="loadToForm('${e.personalNo}')">✏️ Edit</button>
+              <button class="btn btn-red btn-sm" onclick="openDeleteModal('${e.personalNo}','${e.name.replace(/'/g,"\\'")}')">🗑️</button>
+            </div>
           </td>
         </tr>`).join('');
     }
 
-    function populateQuickSelect(data) {
-      const sel = document.getElementById('quickSelect');
-      sel.innerHTML = '<option value="">⚡ Quick Load Employee…</option>';
-      data.forEach(e => {
-        const opt = document.createElement('option');
-        opt.value = e.personalNo;
-        opt.textContent = `${e.personalNo} — ${e.name}`;
-        sel.appendChild(opt);
-      });
+    function filterTable() {
+      const val = document.getElementById('search').value.toLowerCase();
+      renderStaffTable(employeeCache.filter(e =>
+        e.name.toLowerCase().includes(val) ||
+        String(e.personalNo).includes(val) ||
+        (e.tehsil  || '').toLowerCase().includes(val) ||
+        (e.wing    || '').toLowerCase().includes(val) ||
+        (e.markaz  || '').toLowerCase().includes(val)
+      ));
     }
 
+    // ============================================================
+    // ADD EMPLOYEE BUTTON
+    // ============================================================
+    function openAddForm() {
+      resetForm();
+      document.getElementById('employeeFormCard').classList.add('visible');
+      document.getElementById('formCardTitle').textContent = 'Add New Employee';
+      window.scrollTo({ top: document.getElementById('employeeFormCard').offsetTop - 20, behavior: 'smooth' });
+    }
+
+    // ============================================================
+    // EDIT EMPLOYEE
+    // ============================================================
     function loadToForm(pNo) {
       if (!pNo) { resetForm(); return; }
       const e = employeeCache.find(x => String(x.personalNo) === String(pNo));
       if (!e) return;
 
-      // Fill standard fields
-      ['personalNo','name','cell','cnic','scale','designation','role',
-       'page','ddeoCode','gmail','status','budget'].forEach(k => {
-        const el = document.getElementById(k);
-        if (el) el.value = e[k] || '';
-      });
+      isEditMode       = true;
+      editingPersonalNo = String(e.personalNo);
 
-      // Lock Personal No when editing
-      const pnEl = document.getElementById('personalNo');
-      pnEl.readOnly = true; pnEl.style.opacity = '0.5'; pnEl.style.cursor = 'not-allowed';
+      // Show form card
+      document.getElementById('employeeFormCard').classList.add('visible');
+      document.getElementById('formCardTitle').textContent = 'Edit Employee — ' + e.personalNo;
 
-      // Restore wing/tehsil/markaz cascade
+      // Show edit banner
+      const banner = document.getElementById('editModeBanner');
+      banner.classList.add('visible');
+      document.getElementById('editBannerPno').textContent  = e.personalNo;
+      document.getElementById('editBannerName').textContent = e.name;
+      document.getElementById('bannerDeleteBtn').onclick = () => openDeleteModal(e.personalNo, e.name);
+
+      // Cascade: wing first
       if (e.wing) {
         selectWing(e.wing);
-        // After selectWing sets up tehsil options, set the tehsil value
         if (e.tehsil) {
           const tehsilSel = document.getElementById('tehsilSelect');
           tehsilSel.value = e.tehsil;
           onTehsilChange();
-          // After tehsil change populates markaz options, set the markaz value
           if (e.markaz) {
             const markazSel = document.getElementById('markazSelect');
             markazSel.value = e.markaz;
@@ -1075,43 +1121,74 @@
         }
       }
 
-      // Restore Dy Office display
-      if (e.dyOffice) document.getElementById('dyOffice').value = e.dyOffice;
+      // Restore office display
+      if (e.officeGenerated) document.getElementById('dyOffice').value = e.officeGenerated;
 
-      document.getElementById('quickSelect').value = pNo;
-      switchTab('staff');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Fill fields (only after cascade shows them)
+      const fieldMap = {
+        personalNo: e.personalNo, name: e.name, cell: e.cell,
+        cnic: e.cnic, scale: e.scale, designation: e.designation,
+        role: e.role, page: e.page, ddeoCode: e.ddeoCode,
+        gmail: e.gmail, status: e.status, budget: e.budget,
+        linksDisplay: e.links || ''
+      };
+      Object.entries(fieldMap).forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) el.value = val || '';
+      });
+
+      // Lock Personal No when editing
+      const pnEl = document.getElementById('personalNo');
+      pnEl.readOnly = true; pnEl.style.opacity = '0.5'; pnEl.style.cursor = 'not-allowed';
+
+      // Scroll to form
+      window.scrollTo({ top: document.getElementById('editModeBanner').offsetTop - 20, behavior: 'smooth' });
     }
 
+    // ============================================================
+    // RESET FORM
+    // ============================================================
     function resetForm() {
+      isEditMode        = false;
+      editingPersonalNo = '';
+
       document.getElementById('staffForm').reset();
-      document.getElementById('quickSelect').value = '';
+      document.getElementById('employeeFormCard').classList.remove('visible');
+      document.getElementById('editModeBanner').classList.remove('visible');
+      document.getElementById('formCardTitle').textContent = 'Add New Employee';
+
       const pnEl = document.getElementById('personalNo');
       pnEl.readOnly = false; pnEl.style.opacity = ''; pnEl.style.cursor = '';
+      document.getElementById('pnoError').style.display = 'none';
 
-      // Reset cascade
-      selectedWing = ''; selectedTehsil = ''; selectedMarkaz = '';
+      selectedWing = ''; selectedTehsil = '';
       document.getElementById('wingBtnM').className = 'wing-btn';
       document.getElementById('wingBtnW').className = 'wing-btn';
-      document.getElementById('wingValue').value    = '';
-      document.getElementById('tehsilValue').value  = '';
-      document.getElementById('tehsilBlock').style.display   = 'none';
-      document.getElementById('markazBlock').style.display   = 'none';
-      document.getElementById('dyOfficeBlock').style.display = 'none';
+      document.getElementById('tehsilBlock').style.display    = 'none';
+      document.getElementById('markazBlock').style.display    = 'none';
+      document.getElementById('dyOfficeBlock').style.display  = 'none';
+      document.getElementById('employeeFields').style.display = 'none';
       document.getElementById('dyOffice').value = '';
     }
 
-    async function handleStaffSubmit(e) {
-      e.preventDefault();
+    // ============================================================
+    // SAVE STAFF
+    // ============================================================
+    async function handleStaffSubmit(ev) {
+      ev.preventDefault();
 
       if (!selectedWing)   { msgToast('⚠️ Please select a Wing (M-EE or W-EE).', true); return; }
       if (!selectedTehsil) { msgToast('⚠️ Please select a Tehsil.', true); return; }
-      if (!document.getElementById('markazSelect').value) { msgToast('⚠️ Please select a Markaz.', true); return; }
+      const markazVal = document.getElementById('markazSelect').value;
+      if (!markazVal) { msgToast('⚠️ Please select a Markaz.', true); return; }
+
+      const pno = document.getElementById('personalNo').value.trim();
+      if (!/^\d{8}$/.test(pno)) { msgToast('⚠️ Personal Number must be exactly 8 digits.', true); return; }
 
       const payload = {
-        personalNo:  document.getElementById('personalNo').value,
+        personalNo:  pno,
         name:        document.getElementById('name').value,
-        markaz:      document.getElementById('markazSelect').value,
+        markaz:      markazVal,
         cell:        document.getElementById('cell').value,
         page:        document.getElementById('page').value,
         ddeoCode:    document.getElementById('ddeoCode').value,
@@ -1124,31 +1201,61 @@
         role:        document.getElementById('role').value,
         wing:        selectedWing,
         tehsil:      selectedTehsil
-        // dyOffice is generated server-side; links preserved server-side
       };
+
+      const saveBtn = document.getElementById('saveBtn');
+      saveBtn.disabled = true;
+      saveBtn.innerHTML = '<span class="spinner"></span> Saving…';
 
       try {
         const msg = await gasPost('saveStaff', { staffData: payload });
         msgToast(msg);
         resetForm();
-        fetchEmployeeData();
+        await fetchEmployeeData();
       } catch (err) {
         msgToast('❌ Save failed: ' + err.message, true);
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '💾 Save to Database';
       }
     }
 
     // ============================================================
-    // SEARCH / FILTER TABLE
+    // DELETE MODAL
     // ============================================================
-    function filterTable() {
-      const val = document.getElementById('search').value.toLowerCase();
-      renderStaffTable(employeeCache.filter(e =>
-        e.name.toLowerCase().includes(val) ||
-        String(e.personalNo).includes(val) ||
-        (e.tehsil || '').toLowerCase().includes(val) ||
-        (e.wing   || '').toLowerCase().includes(val) ||
-        (e.markaz || '').toLowerCase().includes(val)
-      ));
+    function openDeleteModal(pno, name) {
+      pendingDeletePno  = pno;
+      pendingDeleteName = name;
+      document.getElementById('deleteModalTarget').innerHTML =
+        `<strong>${pno}</strong> — ${name}`;
+      document.getElementById('deleteModal').classList.add('visible');
+    }
+
+    function closeDeleteModal() {
+      document.getElementById('deleteModal').classList.remove('visible');
+      pendingDeletePno  = '';
+      pendingDeleteName = '';
+    }
+
+    async function confirmDelete() {
+      if (!pendingDeletePno) return;
+      const btn = document.getElementById('confirmDeleteBtn');
+      btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Deleting…';
+      try {
+        const res = await gasCall('deleteEmployee', { personalNo: pendingDeletePno });
+        if (res && res.success) {
+          msgToast(res.message || '🗑️ Employee deleted.');
+          closeDeleteModal();
+          resetForm();
+          await fetchEmployeeData();
+        } else {
+          throw new Error((res && res.error) || 'Delete failed.');
+        }
+      } catch (err) {
+        msgToast('❌ Delete failed: ' + err.message, true);
+      } finally {
+        btn.disabled = false; btn.innerHTML = '🗑️ Delete Permanently';
+      }
     }
 
     // ============================================================
@@ -1183,7 +1290,7 @@
             <td style="font-weight:600;">${row.name}</td>
             <td style="color:var(--c-text-dim);">${row.year}</td>
             <td style="color:var(--c-text-dim);">${row.month}</td>
-            <td style="text-align:right; font-family:'Rajdhani',sans-serif; font-weight:700; color:var(--c-red);">${parseFloat(row.amount).toLocaleString()}</td>
+            <td style="text-align:right;font-family:'Rajdhani',sans-serif;font-weight:700;color:var(--c-red);">${parseFloat(row.amount).toLocaleString()}</td>
           </tr>`).join('');
       } catch (err) {
         body.innerHTML = `<tr class="loading-row"><td colspan="5">❌ ${err.message}</td></tr>`;
@@ -1236,7 +1343,7 @@
         const takenMonths = new Set(selections.filter(s => s.idx !== i && s.year === myYear).map(s => s.month));
         mSel.innerHTML = monthOptions.map(m => {
           const disabled = takenMonths.has(m) && m !== myMonth ? 'disabled' : '';
-          const style    = takenMonths.has(m) && m !== myMonth ? 'style="color:var(--c-text-faint); background:rgba(0,0,0,0.4);"' : '';
+          const style    = takenMonths.has(m) && m !== myMonth ? 'style="color:var(--c-text-faint);"' : '';
           const selected = m === myMonth ? 'selected' : '';
           return `<option value="${m}" ${disabled} ${selected} ${style}>${m}</option>`;
         }).join('');
@@ -1316,7 +1423,7 @@
           const key     = `${String(emp.personalNo)}|${yearStr}`;
           const hasPrior= (priorDeductionMap[key] || []).length > 0;
           cells += `<td class="gross-cell">25,000</td>
-                    <td style="text-align:center; padding:6px 8px; vertical-align:middle;">
+                    <td style="text-align:center;padding:6px 8px;vertical-align:middle;">
                       <input type="number" value="0" min="0" max="25000"
                         class="ded-input ${hasPrior ? 'has-prior' : ''}"
                         data-monthidx="${idx}" data-personalno="${emp.personalNo}"
@@ -1326,7 +1433,7 @@
         return `<tr data-personalno="${emp.personalNo}">
           <td class="mono" style="color:var(--c-orange);">${emp.personalNo}</td>
           <td style="font-weight:600;">${emp.name}
-            ${totalPriorCount > 0 ? `<div style="margin-top:6px;"><span class="badge badge-orange">${totalPriorCount} Prior Deduction(s)</span></div>` : ''}
+            ${totalPriorCount > 0 ? `<div style="margin-top:4px;"><span class="badge badge-orange">${totalPriorCount} Prior Deduction(s)</span></div>` : ''}
           </td>
           ${cells}
         </tr>`;
@@ -1378,9 +1485,9 @@
         stages.forEach((s, i) => {
           const el = document.getElementById(`pstep_${i}`);
           if (!el) return;
-          if (i < curStage)      { el.className = 'progress-step done'; }
+          if (i < curStage)       el.className = 'progress-step done';
           else if (i === curStage){ el.className = 'progress-step active'; label.textContent = s.label + '…'; }
-          else                   { el.className = 'progress-step'; }
+          else                    el.className = 'progress-step';
         });
       }, 300);
     }
