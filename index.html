@@ -24,6 +24,8 @@
       --c-red-g:     rgba(244,63,94,0.1);
       --c-yellow:    #fbbf24;
       --c-yellow-g:  rgba(251,191,36,0.12);
+      --c-purple:    #a78bfa;
+      --c-purple-g:  rgba(167,139,250,0.12);
       --c-text:      #e2e8f0;
       --c-text-dim:  #94a3b8;
       --c-text-faint:#475569;
@@ -115,6 +117,35 @@
     }
     .tab-btn:hover { color: var(--c-text); }
     .tab-btn.active { color: var(--c-orange); border-bottom-color: var(--c-orange); }
+
+    /* ---- PERFORMANCE TAB LINK ---- */
+    .tab-btn-performance {
+      padding: 12px 16px; border: none; background: transparent;
+      color: var(--c-purple);
+      font-family: 'Exo 2', sans-serif;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      border-bottom: 2px solid transparent; transition: all 0.2s;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      position: relative;
+    }
+    .tab-btn-performance:hover {
+      color: #c4b5fd;
+      border-bottom-color: var(--c-purple);
+      background: var(--c-purple-g);
+    }
+    .tab-btn-performance::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--c-purple), #c4b5fd);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .tab-btn-performance:hover::before { transform: scaleX(1); }
 
     /* ---- MAIN ---- */
     .main-wrap { padding: 14px 12px; max-width: 1200px; margin: 0 auto; }
@@ -303,7 +334,6 @@
       transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
     }
-    /* Animated shimmer on fill */
     .progress-fill::after {
       content: '';
       position: absolute; top: 0; left: -60%; width: 60%; height: 100%;
@@ -407,6 +437,9 @@
   <div class="tabs-wrap">
     <button class="tab-btn active" onclick="switchTab('staff')" id="tab-staff">👥 Staff Registry</button>
     <button class="tab-btn" onclick="switchTab('billing')" id="tab-billing">💳 Billing &amp; Processing</button>
+    <a href="https://mwaqas3341-aeo.github.io/Inspection-Allowance-Performance/" target="_blank" class="tab-btn-performance">
+      🏆 Performance ↗
+    </a>
     <a href="https://mwaqas3341-aeo.github.io/Allowance-Budget/" target="_blank" class="tab-btn" style="text-decoration: none; color: var(--c-blue); display: flex; align-items: center; gap: 6px;">
       📊 Prepare Budget ↗
     </a>
@@ -415,9 +448,6 @@
   <div class="main-wrap">
     <div class="toast" id="toast"></div>
 
-    <!-- ══════════════════════════════════════
-         CONFIG BANNER — shown if no GAS URL set
-    ══════════════════════════════════════ -->
     <div id="configBanner">
       <h3>⚠️ Backend URL Not Configured</h3>
       <p>Paste your Google Apps Script Web App URL below and click Save. This is stored in your browser only.</p>
@@ -428,9 +458,7 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════
-         STAFF TAB
-    ══════════════════════════════════════ -->
+    <!-- STAFF TAB -->
     <div id="sec-staff" class="tab-content">
 
       <div class="stat-row">
@@ -498,9 +526,7 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════
-         BILLING TAB
-    ══════════════════════════════════════ -->
+    <!-- BILLING TAB -->
     <div id="sec-billing" class="tab-content hidden">
       <div class="billing-top">
 
@@ -565,7 +591,6 @@
           🚀 EXECUTE PIPELINE — Process Bills &amp; Dispatch Emails
         </button>
 
-        <!-- ══════ PROGRESS BAR ══════ -->
         <div id="progressSection">
           <div class="progress-header">
             <span class="progress-label" id="progressLabel">Initialising pipeline…</span>
@@ -582,28 +607,21 @@
   </div>
 
   <script>
-    // ============================================================
-    // CONSTANTS & CONFIG
-    // ============================================================
     const monthOptions = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const yearOptions  = ["2024","2025","2026","2027","2028"];
     const ALLOWANCE    = 25000;
-    const AVG_SECS_PER_EMP = 8; // estimated seconds per employee for progress bar
+    const AVG_SECS_PER_EMP = 8;
 
     let employeeCache         = [];
     let currentSelectedMonths = [];
     let liveHistoryCache      = {};
 
-    // ============================================================
-    // GAS WEB APP URL — stored in localStorage for GitHub Pages use
-    // ============================================================
     function getGasUrl() {
       return localStorage.getItem('gasWebAppUrl') || '';
     }
 
     function saveGasUrl() {
       const url = document.getElementById('gasUrlInput').value.trim();
-      // Accept any google script domain — exec URLs and googleusercontent echo URLs both valid
       const isValid = url.startsWith('https://script.google.com') ||
                       url.startsWith('https://script.googleusercontent.com');
       if (!url || !isValid) {
@@ -624,11 +642,6 @@
       banner.classList.add('visible');
     }
 
-    // ============================================================
-    // GAS CALL — uses JSONP to bypass CORS completely.
-    // fetch() blocks cross-origin redirects (/exec to googleusercontent).
-    // JSONP injects a script tag — no CORS restriction at all.
-    // ============================================================
     function gasCall(action, params = {}) {
       return new Promise((resolve, reject) => {
         const baseUrl = getGasUrl();
@@ -668,8 +681,6 @@
       });
     }
 
-    // gasPost — also uses JSONP GET with payload param.
-    // GAS doGet() reads action + payload and routes accordingly.
     function gasPost(action, body = {}) {
       return new Promise((resolve, reject) => {
         const baseUrl = getGasUrl();
@@ -706,9 +717,7 @@
         document.head.appendChild(script);
       });
     }
-    // ============================================================
-    // INIT
-    // ============================================================
+
     window.onload = function() {
       const saved = getGasUrl();
       if (!saved) {
@@ -721,9 +730,6 @@
       setupHistoryYearFilter();
     };
 
-    // ============================================================
-    // TAB SWITCHER
-    // ============================================================
     function switchTab(id) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
@@ -731,9 +737,6 @@
       document.getElementById('sec-' + id).classList.remove('hidden');
     }
 
-    // ============================================================
-    // TOAST
-    // ============================================================
     function msgToast(msg, isError = false) {
       const t = document.getElementById('toast');
       t.textContent = msg;
@@ -743,9 +746,6 @@
       t._timer = setTimeout(() => { t.style.display = 'none'; }, 5000);
     }
 
-    // ============================================================
-    // STAFF MANAGEMENT
-    // ============================================================
     async function fetchEmployeeData() {
       try {
         const data = await gasCall('getEmployees');
@@ -857,9 +857,6 @@
       renderStaffTable(filtered);
     }
 
-    // ============================================================
-    // HISTORY FILTER
-    // ============================================================
     function setupHistoryYearFilter() {
       const sel = document.getElementById('historyYearFilter');
       const curY = new Date().getFullYear();
@@ -899,9 +896,6 @@
       }
     }
 
-    // ============================================================
-    // BILLING — MONTH CASCADES
-    // ============================================================
     function buildMonthCascades(count) {
       const val = parseInt(count);
       if (isNaN(val) || val < 1 || val > 4) return;
@@ -962,9 +956,6 @@
       }
     }
 
-    // ============================================================
-    // GENERATE MATRIX
-    // ============================================================
     async function generateDeductionTableGrid() {
       const count = parseInt(document.getElementById('numMonthsInput').value);
       currentSelectedMonths = [];
@@ -1076,9 +1067,6 @@
       if (val > gross) inp.value = gross;
     }
 
-    // ============================================================
-    // PROGRESS BAR LOGIC
-    // ============================================================
     let _progressTimer = null;
 
     function startProgressBar(totalEmployees) {
@@ -1088,11 +1076,9 @@
       const label    = document.getElementById('progressLabel');
       const steps    = document.getElementById('progressSteps');
 
-      // Total estimated time in ms
       const totalMs   = totalEmployees * AVG_SECS_PER_EMP * 1000;
       const startTime = Date.now();
 
-      // Stage labels — divide pipeline into logical phases
       const stages = [
         { label: 'Initialising',    pct: 2  },
         { label: 'Writing Data',    pct: 15 },
@@ -1102,26 +1088,22 @@
         { label: 'Completing',      pct: 100 }
       ];
 
-      // Render step pills
       steps.innerHTML = stages.map((s, i) =>
         `<span class="progress-step" id="pstep_${i}">${s.label}</span>`
       ).join('');
 
       section.classList.add('visible');
 
-      // Clear any previous timer
       if (_progressTimer) clearInterval(_progressTimer);
 
       _progressTimer = setInterval(() => {
         const elapsed  = Date.now() - startTime;
-        // Clamp to 95% max — the final 5% only fills on actual response
         const rawPct   = Math.min(95, (elapsed / totalMs) * 100);
         const rounded  = Math.floor(rawPct);
 
         fill.style.width = rounded + '%';
         pct.textContent  = rounded + '%';
 
-        // Determine current stage
         let curStage = 0;
         for (let i = 0; i < stages.length; i++) {
           if (rounded >= stages[i].pct) curStage = i;
@@ -1149,14 +1131,12 @@
       pct.style.color  = 'var(--c-green)';
       label.textContent = '✅ Pipeline Complete!';
 
-      // Mark all steps done
       document.querySelectorAll('.progress-step').forEach(el => {
         el.className = 'progress-step done';
       });
 
       msgToast('✅ ' + successMsg);
 
-      // Hide progress bar after 4 seconds
       setTimeout(() => {
         document.getElementById('progressSection').classList.remove('visible');
       }, 4000);
@@ -1173,9 +1153,6 @@
       msgToast('❌ Error: ' + errMsg, true);
     }
 
-    // ============================================================
-    // EXECUTE PIPELINE
-    // ============================================================
     async function executeProcessingPipeline() {
       const btn = document.getElementById('runPipelineBtn');
       btn.disabled = true;
@@ -1216,3 +1193,4 @@
   </script>
 </body>
 </html>
+
